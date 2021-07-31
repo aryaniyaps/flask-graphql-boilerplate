@@ -56,11 +56,6 @@ def register_context_processors(app):
     inject values into templates.
     """
 
-    def inject_now():
-        """
-        returns the current UTC
-        date-time instance.
-        """
-        return {"now": datetime.utcnow()}
-
-    app.context_processor(inject_now)
+    # injects the current UTC date-time instance
+    # (for use with email templates).
+    app.context_processor(lambda: {"now": datetime.utcnow()})
