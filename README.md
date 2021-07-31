@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" />
+  <img src="assets/banner.jpg" />
   a Flask template for [cookiecutter](https://github.com/cookiecutter/cookiecutter) to get you up and running, powered by GraphQL.
 </p>
 
