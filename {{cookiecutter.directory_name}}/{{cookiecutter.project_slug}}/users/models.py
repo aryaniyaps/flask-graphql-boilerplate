@@ -1,5 +1,6 @@
 from {{ cookiecutter.project_slug }}.base.models import BaseDocument
 from {{ cookiecutter.project_slug }}.extensions import db, bcrypt
+from {{ cookiecutter.project_slug }}.upload_sets import avatar_set
 
 
 class User(BaseDocument):
@@ -26,6 +27,15 @@ class User(BaseDocument):
         default=True,
         required=True
     )
+
+    @property
+    def avatar_url(self):
+        """
+        returns an avatar URL for the user 
+        instance, based on their avatar hash.
+        """
+        return avatar_set.url(self.avatar)
+
 
     def set_password(self, password: str):
         """

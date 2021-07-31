@@ -1,10 +1,12 @@
 from datetime import datetime
 
 from flask import Flask
+from flask_uploads import configure_uploads
 from strawberry.flask.views import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema
 from {{ cookiecutter.project_slug }} import extensions
+from {{ cookiecutter.project_slug }} import upload_sets
 from {{ cookiecutter.project_slug }} import users
 
 
@@ -24,6 +26,8 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
     register_extensions(app)
     register_context_processors(app)
     register_shell_context(app)
+
+    configure_upload_sets(app)
     return app
 
 
@@ -34,6 +38,12 @@ def register_extensions(app):
     extensions.mail.init_app(app)
     extensions.db.init_app(app)
     extensions.bcrypt.init_app(app)
+
+def configure_upload_sets(app):
+    """
+    configures upload sets for the server.
+    """
+    configure_uploads(app, upload_sets.avatar_set)
 
 
 def register_shell_context(app):
