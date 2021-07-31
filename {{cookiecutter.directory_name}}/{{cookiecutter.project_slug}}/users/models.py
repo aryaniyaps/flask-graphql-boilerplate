@@ -22,6 +22,10 @@ class User(BaseDocument):
         default="default.jpg",
         required=True
     )
+    is_active = db.BooleanField(
+        default=True,
+        required=True
+    )
 
     def set_password(self, password: str):
         """
@@ -36,3 +40,12 @@ class User(BaseDocument):
         matches the user's password hash.
         """
         return bcrypt.check_password_hash(self.password, password)
+
+    def inactivate(self):
+        """
+        sets the `is_active` flag to false on 
+        the user instance This should generally be 
+        used as an alternative to hard deletes.
+        """
+        self.is_active = False
+        self.save()

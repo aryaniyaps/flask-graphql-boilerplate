@@ -8,12 +8,13 @@
 - [x] built for [Flask](https://github.com/pallets/flask) 2.0.1
 - [x] works with python 3.8
 - [x] uses [strawberry graphQL](https://github.com/strawberry-graphql/strawberry).
-- [ ] comes with an authentication system out of the box.
 - [ ] can serve media files.
 - [ ] configured email templates.
 - [ ] graphQL file uploads support.
+- [ ] uses unittest and [factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.
 - [x] [mongoengine](https://github.com/MongoEngine/mongoengine) ODM support.
 - [x] uses [pipenv](https://github.com/pypa/pipenv) to manage dependencies.
+- [ ] comes with an authentication system out of the box (including email verification and password reset functionalities).
 
 ## Contributing
 
