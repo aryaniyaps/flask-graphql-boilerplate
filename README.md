@@ -14,7 +14,8 @@
 - [ ] uses pytest and [factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.
 - [x] [mongoengine](https://github.com/MongoEngine/mongoengine) ODM support.
 - [x] uses [pipenv](https://github.com/pypa/pipenv) to manage dependencies.
-- [ ] comes with an authentication system out of the box (including email verification and password reset functionalities).
+- [ ] comes with an authentication system out of the box
+      (including email verification and password reset functionalities).
 
 ## Contributing
 
