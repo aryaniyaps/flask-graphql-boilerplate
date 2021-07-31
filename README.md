@@ -1,6 +1,7 @@
-# Flask GraphQL Boilerplate
-
-a Flask template for [cookiecutter](https://github.com/cookiecutter/cookiecutter) to get you up and running, powered by GraphQL.
+<p align="center">
+  <img src="assets/banner.png" />
+  a Flask template for [cookiecutter](https://github.com/cookiecutter/cookiecutter) to get you up and running, powered by GraphQL.
+</p>
 
 ## Features (work in progress)
 
