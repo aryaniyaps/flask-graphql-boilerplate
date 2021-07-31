@@ -1,4 +1,4 @@
-from cassoulet.extensions import mail
+from {{ cookiecutter.project_slug }}.extensions import mail
 from flask_mail import Message
 
 

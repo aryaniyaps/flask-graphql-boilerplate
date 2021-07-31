@@ -1,5 +1,5 @@
-from server.base.models import BaseDocument
-from server.extensions import db, bcrypt
+from {{ cookiecutter.project_slug }}.base.models import BaseDocument
+from {{ cookiecutter.project_slug }}.extensions import db, bcrypt
 
 
 class User(BaseDocument):

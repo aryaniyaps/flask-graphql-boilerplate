@@ -1,5 +1,5 @@
 *.pyc
 *.log
-.idea
+../.idea
 venv
 .env

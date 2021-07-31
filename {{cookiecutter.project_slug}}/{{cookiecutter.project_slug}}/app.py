@@ -2,8 +2,8 @@ from datetime import datetime
 
 from flask import Flask
 
-from server import extensions
-from server import users
+from {{ cookiecutter.project_slug }} import extensions
+from {{ cookiecutter.project_slug }} import users
 
 
 # from strawberry.flask.views import GraphQLView

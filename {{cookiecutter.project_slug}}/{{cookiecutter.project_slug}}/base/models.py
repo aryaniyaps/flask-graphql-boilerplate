@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from server.extensions import db
+from {{ cookiecutter.project_slug }}.extensions import db
 
 
 class BaseDocument(db.Document):
