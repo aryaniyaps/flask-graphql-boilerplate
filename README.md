@@ -1,7 +1,6 @@
 # Flask GraphQL Boilerplate
 
-a flask template for [cookiecutter](https://github.com/cookiecutter/cookiecutter) to get you up and running. Packed with GraphQL and an authentication system out of the box.
-Uses pipenv to manage dependencies.
+a Flask + GraphQL template for [cookiecutter](https://github.com/cookiecutter/cookiecutter) to get you up and running.
 
 ## Features (work in progress)
 
