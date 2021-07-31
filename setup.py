@@ -8,7 +8,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-# Our version should matches the version of Flask we support.
+# Our version should match the version of Flask we support.
 # If Flask has a new release, we branch, tag, then update this setting after the tag.
 version = "2.0.1"
 
