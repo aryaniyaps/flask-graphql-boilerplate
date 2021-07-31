@@ -8,7 +8,6 @@ PUBLIC_SITE_NAME = env.str("PUBLIC_SITE_NAME", default="{{ cookiecutter.project_
 
 ENV = env.str("FLASK_ENV", default="development")
 SECRET_KEY = env.str("SECRET_KEY")
-SECURITY_PASSWORD_SALT = env.str("SECURITY_PASSWORD_SALT")
 
 MONGODB_SETTINGS = {
     "host": env.str("DATABASE_URL")
