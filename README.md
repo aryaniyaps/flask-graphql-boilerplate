@@ -13,7 +13,7 @@
 - [ ] configured email templates.
 - [ ] graphQL file uploads support.
 - [x] [mongoengine](https://github.com/MongoEngine/mongoengine) ODM support.
-- [x] uses pipenv to manage dependencies.
+- [x] uses [pipenv](https://github.com/pypa/pipenv) to manage dependencies.
 
 ## Contributing
 
