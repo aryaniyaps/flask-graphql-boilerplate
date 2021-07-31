@@ -23,7 +23,7 @@ with open("README.md") as readme_file:
 setup(
     name="flask-graphql-boilerplate",
     version=version,
-    description="a flask boilerplate to get you up and running, packed with GraphQL.",
+    description="a flask boilerplate for cookiecutter to get you up and running, packed with GraphQL.",
     long_description=long_description,
     author="Aryan Iyappan",
     author_email="aryaniyappan2006@gmail.com",
