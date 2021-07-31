@@ -7,7 +7,7 @@
 
 - [x] built for Flask 2.0.1
 - [x] works with python 3.8
-- [ ] uses [strawberry graphQL](https://github.com/strawberry-graphql/strawberry).
+- [x] uses [strawberry graphQL](https://github.com/strawberry-graphql/strawberry).
 - [ ] comes with an authentication system out of the box.
 - [ ] can serve media files.
 - [ ] configured email templates.
