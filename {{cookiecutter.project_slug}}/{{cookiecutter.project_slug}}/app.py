@@ -1,12 +1,11 @@
 from datetime import datetime
 
 from flask import Flask
+from strawberry.flask.views import GraphQLView
 
+from {{ cookiecutter.project_slug }} import schema
 from {{ cookiecutter.project_slug }} import extensions
 from {{ cookiecutter.project_slug }} import users
-
-
-from strawberry.flask.views import GraphQLView
 
 
 def create_app(config="{{ cookiecutter.project_slug }}.settings"):
