@@ -3,8 +3,8 @@ from environs import Env
 env = Env()
 env.read_env()
 
-SITE_NAME = env.str("PUBLIC_SITE_NAME")
-SITE_URL = env.str("PUBLIC_SITE_URL")
+PUBLIC_SITE_URL = env.str("PUBLIC_SITE_URL")
+PUBLIC_SITE_NAME = env.str("PUBLIC_SITE_NAME", default="{{ cookiecutter.project_name }}")
 
 ENV = env.str("FLASK_ENV", default="development")
 SECRET_KEY = env.str("SECRET_KEY")
