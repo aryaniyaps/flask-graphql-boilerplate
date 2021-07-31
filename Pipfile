@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "==2.0.1"
+flask-bcrypt = "==0.7.1"
+flask-mail = "==0.9.1"
+strawberry-graphql = "==0.68.2"
+environs = "==9.3.2"
+flask-mongoengine = "==1.0.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
