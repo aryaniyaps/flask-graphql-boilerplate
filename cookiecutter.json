@@ -1,5 +1,5 @@
 {
-  "full_name": "Aryan Iyappan",
+  "author_name": "Aryan Iyappan",
   "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
