@@ -6,21 +6,21 @@ from {{ cookiecutter.project_slug }} import extensions
 from {{ cookiecutter.project_slug }} import users
 
 
-# from strawberry.flask.views import GraphQLView
+from strawberry.flask.views import GraphQLView
 
 
-def create_app(config="server.settings"):
+def create_app(config="{{ cookiecutter.project_slug }}.settings"):
     app = Flask(__name__)
     app.config.from_object(config)
 
-    # app.add_url_rule(
-    #     rule="/graphql",
-    #     view_func=GraphQLView.as_view(
-    #         name="graphql",
-    #         schema=schema,
-    #         graphiql=app.config.get("DEBUG")
-    #     )
-    # )
+    app.add_url_rule(
+        rule="/graphql",
+        view_func=GraphQLView.as_view(
+            name="graphql",
+            schema=schema,
+            graphiql=app.config.get("DEBUG")
+        )
+    )
 
     register_extensions(app)
     register_context_processors(app)

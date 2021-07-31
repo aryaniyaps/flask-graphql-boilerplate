@@ -18,6 +18,10 @@ class User(BaseDocument):
         regex=r"[A-Za-z0-9@#$%^&+=]",
         required=True,
     )
+    avatar = db.StringField(
+        default="default.jpg",
+        required=True
+    )
 
     def set_password(self, password: str):
         """
