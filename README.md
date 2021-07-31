@@ -5,7 +5,7 @@
 
 ## Features at a glance
 
-- [x] built for Flask 2.0.1
+- [x] built for [Flask](https://github.com/pallets/flask) 2.0.1
 - [x] works with python 3.8
 - [x] uses [strawberry graphQL](https://github.com/strawberry-graphql/strawberry).
 - [ ] comes with an authentication system out of the box.
