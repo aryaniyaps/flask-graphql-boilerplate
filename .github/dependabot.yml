@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "pipenv"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "pipenv"
+    assignees:
+      - "codebyaryan"
+    target-branch: "main"
+    labels:
+      - "dependencies"
+    versioning-strategy: auto
