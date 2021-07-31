@@ -9,7 +9,7 @@
 - [x] works with python 3.8
 - [x] uses [strawberry graphQL](https://github.com/strawberry-graphql/strawberry).
 - [ ] can serve media files.
-- [ ] configured email templates.
+- [x] pre-configured and extensible email templates.
 - [ ] graphQL file uploads support.
 - [ ] uses pytest and [factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.
 - [x] [mongoengine](https://github.com/MongoEngine/mongoengine) ODM support.
