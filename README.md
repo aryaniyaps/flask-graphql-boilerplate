@@ -14,7 +14,7 @@ mostly start off my projects with this template.
 
 - [x] Built for [Flask](https://github.com/pallets/flask) 2.0.1
 - [x] Works with Python 3.8
-- [x] Uses [Strawberry GraphQL](https://github.com/strawberry-graphql/strawberry).
+- [x] Uses [Graphene](https://github.com/graphql-python/graphene) for the GraphQL schema.
 - [x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
 - [x] [Mongoengine](https://github.com/MongoEngine/mongoengine) ODM support.
 - [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
