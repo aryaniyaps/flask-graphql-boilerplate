@@ -48,7 +48,7 @@ def add_upload_sets(app):
     """
     adds upload sets for the server.
     """
-    configure_uploads(app, uploads.media_set)
+    configure_uploads(app, uploads.avatar_set)
 
 
 def register_shell_context(app):

@@ -17,8 +17,8 @@ class Query(UserQuery):
 @strawberry.type
 class Mutation(UserMutation):
     """
-    this is the root `mutation` field for the
-    GraphQL schema. This class must include
+    this is the root `mutation` field for 
+    the GraphQL schema. This class must include
     every mutation as it's method.
     """
     pass
