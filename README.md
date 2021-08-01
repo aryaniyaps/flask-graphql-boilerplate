@@ -16,7 +16,7 @@ mostly start off my projects with this template.
 - [x] Works with Python 3.8
 - [x] Uses [Graphene](https://github.com/graphql-python/graphene) for the GraphQL schema.
 - [x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
-- [x] [Mongoengine](https://github.com/MongoEngine/mongoengine) ODM support.
+- [x] PostgreSQL and [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) support.
 - [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
 - [ ] GraphQL file uploads support.
 - [ ] Uses [Pytest](https://github.com/pytest-dev/pytest) and [Factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.

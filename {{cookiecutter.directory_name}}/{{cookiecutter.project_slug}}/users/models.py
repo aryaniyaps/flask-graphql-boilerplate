@@ -1,32 +1,45 @@
-from {{ cookiecutter.project_slug }}.base.models import BaseDocument
+from {{ cookiecutter.project_slug }}.base.models import BaseModel
 from {{ cookiecutter.project_slug }}.extensions import db, bcrypt
 from {{ cookiecutter.project_slug }}.uploads import avatar_set
 
 
-class User(BaseDocument):
-    email = db.EmailField(
+class User(BaseModel):
+    __tablename__ = "users"
+
+    email = db.Column(
+        "email",
+        db.String(255),
         unique=True,
-        required=True,
+        nullable=False,
+        index=True
     )
-    username = db.StringField(
-        min_length=2,
-        max_length=32,
-        required=True,
+    username = db.Column(
+        "username",
+        db.String(32),
         unique=True,
+        nullable=False,
+        index=True
     )
-    password = db.StringField(
-        min_length=8,
-        regex=r"[A-Za-z0-9@#$%^&+=]",
-        required=True,
+    password = db.Column(
+        "password",
+        db.String(255),
+        nullable=False
     )
-    avatar = db.StringField(
+    avatar = db.Column(
+        "avatar",
+        db.String(255),
         default="default.jpg",
         required=True
     )
-    is_active = db.BooleanField(
+    is_active = db.Column(
+        "is_active",
+        db.Boolean,
         default=True,
-        required=True
+        nullable=False
     )
+
+    def __repr__(self):
+        return "<User %s>" % self.id
 
     @property
     def avatar_url(self):
@@ -49,7 +62,10 @@ class User(BaseDocument):
         returns whether the provided password
         matches the user's password hash.
         """
-        return bcrypt.check_password_hash(self.password, password)
+        return bcrypt.check_password_hash(
+            password=password,
+            pw_hash=self.password
+        )
 
     def inactivate(self):
         """

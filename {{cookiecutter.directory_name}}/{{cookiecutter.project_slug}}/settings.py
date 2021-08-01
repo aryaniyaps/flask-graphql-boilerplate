@@ -14,10 +14,9 @@ SECRET_KEY = env.str("SECRET_KEY")
 # flask-uploads configuration.
 UPLOADS_DEFAULT_DEST = "media/"
 
-# flask-mongoengine configuration.
-MONGODB_SETTINGS = {
-    "host": env.str("DATABASE_URL")
-}
+# flask-sqlalchemy configuration.
+SQLALCHEMY_DATABASE_URI = env.str("DATABASE_URL")
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # flask-bcrypt configuration.
 BCRYPT_LOG_ROUNDS = env.int("BCRYPT_LOG_ROUNDS", default=12)

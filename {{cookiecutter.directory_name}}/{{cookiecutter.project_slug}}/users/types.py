@@ -1,17 +1,18 @@
-from graphene import InputObjectType, ObjectType, String
+from graphene import InputObjectType, String
+from graphene_sqlalchemy import SQLAlchemyObjectType
 from graphene_file_upload.scalars import Upload
 
-from {{ cookiecutter.project_slug }}.base.types import BaseType
+from .models import User
 
 
-class UserType(ObjectType):
-    email = String(required=True)
-    username = String(required=True)
-    password = String(required=True)
-
+class UserType(SQLAlchemyObjectType):
     class Meta:
         name = "User"
-        interfaces = (BaseType,)
+        model = User
+        exclude_fields = (
+            "password",
+            "is_active"
+        )
 
 
 class LoginInput(InputObjectType):

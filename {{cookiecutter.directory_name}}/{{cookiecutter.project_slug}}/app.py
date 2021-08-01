@@ -41,6 +41,7 @@ def register_extensions(app):
     """
     extensions.mail.init_app(app)
     extensions.db.init_app(app)
+    extensions.migrate.init_app(app, extensions.db)
     extensions.bcrypt.init_app(app)
 
 
