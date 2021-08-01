@@ -9,7 +9,7 @@ We actively welcome your pull requests and invite you to submit pull requests di
 The boilerplate must not be very opinionated. It should provide a basic set of features
 which must be easily extensible.
 
-When it comes to mutations, we always prefer to use `ClientIDMutation` subclassess instead of `Mutation` subclasses because
+When it comes to mutations, we always prefer to use `ClientIDMutation` subclasses instead of `Mutation` subclasses because
 this gives the server and client more control over features like caching and preventing duplication.
 
 ## Testing the boilerplate
