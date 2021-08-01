@@ -31,14 +31,14 @@ using the boilerplate is very simple! Make sure that you have cookiecutter insta
 pip install cookiecutter
 ```
 
-Once that's done, you can get started by entering the following command.
+You can get started by entering the following command.
 You'll be asked to enter the project variables.
 
 ```cmd
 cookiecutter gh:codebyaryan/flask-graphql-boilerplate
 ```
 
-However, if you don't want to provide any project variables, and want to stick with
+If you don't want to provide any input, and want to stick with
 the defaults, you can use this command instead.
 
 ```cmd
