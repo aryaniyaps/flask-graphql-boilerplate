@@ -14,7 +14,7 @@ class Query(
     every query as it's method.
     """
     
-    # root node interface.
+    # root node field definition.
     node = relay.Node.Field()
 
 
