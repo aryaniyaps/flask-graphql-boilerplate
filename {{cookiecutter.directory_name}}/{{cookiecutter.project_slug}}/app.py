@@ -6,6 +6,7 @@ from strawberry.flask.views import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema
 from {{ cookiecutter.project_slug }} import extensions
+from {{ cookiecutter.project_slug }} import uploads
 from {{ cookiecutter.project_slug }} import users
 
 
@@ -48,7 +49,7 @@ def add_upload_sets(app):
     """
     # sets the max upload size (defaults to 16MB).
     patch_request_class(app)
-    configure_uploads(app, extensions.media)
+    configure_uploads(app, uploads.media_set)
 
 
 def register_shell_context(app):
