@@ -6,7 +6,7 @@
 ## Motivation
 
 The graphQL community is relatively new, and there are fewer resources to help you get started with it in the python ecosystem. While I started to write
-graphQL projects with python, I experienced a lot of friction, and need to write a lot of boilerplate code. Hence, I figured out that it would be easy to
+graphQL projects with python, I experienced a lot of friction, and need to write a lot of boilerplate code. Hence, I figured out that it would be easier to
 make a template which would help me to get up and running. This template uses a lot of modern libraries to provide the best developer experience. Today, I
 mostly start off my projects with this template.
 
