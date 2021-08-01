@@ -43,6 +43,7 @@ def register_extensions(app):
     extensions.db.init_app(app)
     extensions.bcrypt.init_app(app)
 
+
 def add_upload_sets(app):
     """
     adds upload sets for the server.
