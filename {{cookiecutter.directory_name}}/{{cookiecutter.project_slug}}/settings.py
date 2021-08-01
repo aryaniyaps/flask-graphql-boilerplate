@@ -12,7 +12,6 @@ ENV = env.str("FLASK_ENV", default="development")
 SECRET_KEY = env.str("SECRET_KEY")
 
 # flask-uploads configuration.
-UPLOADED_FILES_URL = "/media/"
 UPLOADS_DEFAULT_DEST = "media/"
 
 # flask-mongoengine configuration.
