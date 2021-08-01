@@ -8,8 +8,8 @@ from {{ cookiecutter.project_slug }}.users.mutations import UserMutation
 class Query(UserQuery):
     """
     this is the root `query` field for the
-    GraphQL schema. This class must subclass
-    all other Query classes.
+    GraphQL schema. This class must include
+    every query as it's method.
     """
     pass
 
@@ -18,8 +18,8 @@ class Query(UserQuery):
 class Mutation(UserMutation):
     """
     this is the root `mutation` field for the
-    GraphQL schema. This class must subclass
-    all other Mutation classes.
+    GraphQL schema. This class must include
+    every mutation as it's method.
     """
     pass
 
