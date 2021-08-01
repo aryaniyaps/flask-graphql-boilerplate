@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from flask import Flask
-from flask_uploads import configure_uploads, patch_request_class
+from flask_uploads import configure_uploads
 from strawberry.flask.views import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema
@@ -47,14 +47,12 @@ def add_upload_sets(app):
     """
     adds upload sets for the server.
     """
-    # sets the max upload size (defaults to 16MB).
-    patch_request_class(app)
     configure_uploads(app, uploads.media_set)
 
 
 def register_shell_context(app):
     """
-    registers the shell context for the server.
+    registers shell context processors for the server.
     """
 
     def shell_context():
