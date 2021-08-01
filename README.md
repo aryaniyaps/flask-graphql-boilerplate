@@ -38,8 +38,7 @@ You'll be asked to enter the project variables.
 cookiecutter gh:codebyaryan/flask-graphql-boilerplate
 ```
 
-If you don't want to provide any input, and want to stick with
-the defaults, you can use this command instead.
+If you don't want to provide any project variables, you can use this command instead.
 
 ```cmd
 cookiecutter gh:codebyaryan/flask-graphql-boilerplate --noinput
