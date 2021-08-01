@@ -13,7 +13,7 @@ mostly start off my projects with this template.
 ## Features at a glance
 
 - [x] Built for [Flask](https://github.com/pallets/flask) 2.0.1
-- [x] Works with python 3.8
+- [x] Works with Python 3.8
 - [x] Uses [Strawberry GraphQL](https://github.com/strawberry-graphql/strawberry).
 - [x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
 - [x] [Mongoengine](https://github.com/MongoEngine/mongoengine) ODM support.
