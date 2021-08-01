@@ -2,7 +2,7 @@ from datetime import datetime
 
 from flask import Flask
 from flask_uploads import configure_uploads
-from strawberry.flask.views import GraphQLView
+from flask_graphql import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema
 from {{ cookiecutter.project_slug }} import extensions

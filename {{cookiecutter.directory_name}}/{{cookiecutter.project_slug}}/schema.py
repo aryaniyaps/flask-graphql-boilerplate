@@ -1,11 +1,13 @@
-import strawberry
+import graphene
 
 from {{ cookiecutter.project_slug }}.users.queries import UserQuery
 from {{ cookiecutter.project_slug }}.users.mutations import UserMutation
 
 
-@strawberry.type
-class Query(UserQuery):
+class Query(
+    UserQuery,
+    graphene.ObjectType
+):
     """
     this is the root `query` field for the
     GraphQL schema. This class must include
@@ -14,8 +16,10 @@ class Query(UserQuery):
     pass
 
 
-@strawberry.type
-class Mutation(UserMutation):
+class Mutation(
+    UserMutation,
+    graphene.ObjectType
+):
     """
     this is the root `mutation` field for 
     the GraphQL schema. This class must include
@@ -24,7 +28,7 @@ class Mutation(UserMutation):
     pass
 
 
-schema = strawberry.Schema(
+schema = graphene.Schema(
     query=Query, 
     mutation=Mutation
 )
