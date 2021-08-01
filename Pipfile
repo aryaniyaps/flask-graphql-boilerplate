@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-cookiecutter= "==1.7.3"
+cookiecutter = "==1.7.3"
 
 [dev-packages]
 
