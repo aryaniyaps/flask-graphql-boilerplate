@@ -1,6 +1,6 @@
 from {{ cookiecutter.project_slug }}.base.models import BaseDocument
 from {{ cookiecutter.project_slug }}.extensions import db, bcrypt
-from {{ cookiecutter.project_slug }}.upload_sets import avatar_set
+from {{ cookiecutter.project_slug }}.uploads import media_set
 
 
 class User(BaseDocument):
@@ -34,7 +34,7 @@ class User(BaseDocument):
         returns an avatar URL for the user 
         instance, based on their avatar hash.
         """
-        return avatar_set.url(self.avatar)
+        return media_set.url(self.avatar)
 
 
     def set_password(self, password: str):
