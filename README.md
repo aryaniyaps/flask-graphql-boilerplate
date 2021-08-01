@@ -13,10 +13,9 @@
 - [x] uses [pipenv](https://github.com/pypa/pipenv) to manage dependencies.
 - [ ] can serve media files (with Nginx).
 - [ ] graphQL file uploads support.
-- [ ] uses pytest and [factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.
-- [ ] comes with an authentication system out of the box
-      (including email verification and password reset functionalities).
+- [ ] uses [pytest](https://github.com/pytest-dev/pytest) and [factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.
+- [ ] comes with an authentication system out of the box.
 
 ## Contributing
 
-this project is open for contributions! Make sure to read our [contributing guidelines](.github/CONTRIBUTING.md) to get started.
+this project is open for contributions! Make sure to read the [contributing guidelines](.github/CONTRIBUTING.md) to get started.

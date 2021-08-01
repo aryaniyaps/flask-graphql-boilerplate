@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from flask import Flask
-from flask_uploads import configure_uploads
+from flask_uploads import configure_uploads, patch_request_class
 from strawberry.flask.views import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema
@@ -11,6 +11,9 @@ from {{ cookiecutter.project_slug }} import users
 
 
 def create_app(config="{{ cookiecutter.project_slug }}.settings"):
+    """
+    initializes and returns an app.
+    """
     app = Flask(__name__)
     app.config.from_object(config)
 
@@ -23,11 +26,12 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
         )
     )
 
+    add_upload_sets(app)
+
     register_extensions(app)
     register_context_processors(app)
     register_shell_context(app)
 
-    configure_upload_sets(app)
     return app
 
 
@@ -39,10 +43,12 @@ def register_extensions(app):
     extensions.db.init_app(app)
     extensions.bcrypt.init_app(app)
 
-def configure_upload_sets(app):
+def add_upload_sets(app):
     """
-    configures upload sets for the server.
+    adds upload sets for the server.
     """
+    # sets the maximum upload size (defaults to 16MB).
+    patch_request_class(app)
     configure_uploads(app, upload_sets.avatar_set)
 
 

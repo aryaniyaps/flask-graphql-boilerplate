@@ -1,5 +1,12 @@
+# pycache.
 *.pyc
-*.log
 .idea
+
+# virtual environment.
 venv
+
+# environment variables.
 .env
+
+# media files.
+media
