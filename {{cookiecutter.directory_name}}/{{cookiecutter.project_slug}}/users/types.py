@@ -1,4 +1,5 @@
 import strawberry
+from strawberry.file_uploads import Upload
 
 from {{ cookiecutter.project_slug }}.base.types import BaseType
 
@@ -32,6 +33,23 @@ class ResetPasswordInput:
 
 @strawberry.input
 class RequestResetInput:
+    email: str
+
+
+@strawberry.input
+class UpdateUserInput:
+    avatar: Upload
+    username: str
+
+
+@strawberry.input
+class ChangeEmailInput:
+    email: str
+    change_code: str
+
+
+@strawberry.input
+class RequestEmailChangeInput:
     email: str
 
 
