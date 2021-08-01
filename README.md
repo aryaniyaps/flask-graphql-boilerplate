@@ -18,10 +18,31 @@ mostly start off my projects with this template.
 - [x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
 - [x] [Mongoengine](https://github.com/MongoEngine/mongoengine) ODM support.
 - [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
-- [ ] Can serve media files (with Nginx).
 - [ ] GraphQL file uploads support.
 - [ ] Uses [Pytest](https://github.com/pytest-dev/pytest) and [Factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.
 - [ ] Comes with an authentication system out of the box.
+
+## Using the boilerplate
+
+using the boilerplate is very simple! Make sure that you have cookiecutter installed.
+
+```cmd
+pip install cookiecutter
+```
+
+Once that's done, you can get started by entering the following command.
+You'll be asked to enter the project variables.
+
+```cmd
+cookiecutter gh:codebyaryan/flask-graphql-boilerplate
+```
+
+However, if you don't want to provide any project variables, and want to stick with
+the defaults, you can use this command instead.
+
+```cmd
+cookiecutter gh:codebyaryan/flask-graphql-boilerplate --noinput
+```
 
 ## Contributing
 
