@@ -8,11 +8,9 @@ class Query(
     UserQuery,
     graphene.ObjectType
 ):
-    """
-    this is the root `query` field for the
-    GraphQL schema. This class must include
-    every query as it's method.
-    """
+    # this is the root `query` field for the
+    # GraphQL schema. This class must include
+    # every query as it's method.
     pass
 
 
@@ -20,11 +18,9 @@ class Mutation(
     UserMutation,
     graphene.ObjectType
 ):
-    """
-    this is the root `mutation` field for 
-    the GraphQL schema. This class must include
-    every mutation as it's method.
-    """
+    # this is the root `mutation` field for 
+    # the GraphQL schema. This class must include
+    # every mutation as it's method.
     pass
 
 
