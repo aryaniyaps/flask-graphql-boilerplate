@@ -1,97 +1,108 @@
-from graphene import Mutation
-
-from .types import RegisterInput, LoginInput, UpdateUserInput
-from .types import ResetPasswordInput, RequestResetInput
-from .types import ChangeEmailInput, RequestEmailChangeInput
+from graphene import String
+from graphene.relay import ClientIDMutation
+from graphene_file_upload.scalars import Upload
 
 
-class Register(Mutation):
+class Register(ClientIDMutation):
     """
     creates an user instance.
     """
-    class Arguments:
-        input = RegisterInput(required=True)
+    class Input:
+        email = String(required=True)
+        username = String(required=True)
+        password = String(required=True)
     
-    def mutate(root, info, input):
-        return Register()
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        return cls()
 
 
-class Login(Mutation):
+class Login(ClientIDMutation):
     """
     logs the user associated with the provided
     credentials in, if they were correct.
     """
-    class Arguments:
-        input = LoginInput(required=True)
+    class Input:
+        email = String(required=True)
+        password = String(required=True)
 
-    def mutate(root, info, input):
-        return Login()
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        return cls()
 
 
-class ResetPassword(Mutation):
+class ResetPassword(ClientIDMutation):
     """
     resets the password for the user account
     associated with the given email address.
     """
-    class Arguments:
-        input = ResetPasswordInput(required=True)
+    class Input:
+        password = String(required=True)
+        reset_token = String(required=True)
 
-    def mutate(root, info, input):
-        return ResetPassword()
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        return cls()
 
 
-class RequestReset(Mutation):
+class RequestPasswordReset(ClientIDMutation):
     """
     sends a password reset link to the
     provided email address.
     """
-    class Arguments:
-        input = RequestResetInput(required=True)
+    class Input:
+        email = String(required=True)
     
-    def mutate(root, info, input):
-        return RequestReset()
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        return cls()
 
 
-class UpdateCurrentUser(Mutation):
+class UpdateCurrentUser(ClientIDMutation):
     """
     updates the current user instance.
     """
-    class Arguments:
-        input = UpdateUserInput(required=True)
+    class Input:
+        avatar = Upload()
+        username = String()
 
-    def mutate(root, info, input):
-        return UpdateCurrentUser()
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        return cls()
 
 
-class RequestEmailChange(Mutation):
+class RequestEmailChange(ClientIDMutation):
     """
     sends a email change link to the
     provided email address.
     """
-    class Arguments:
-        input = RequestEmailChangeInput(required=True)
+    class Input:
+        email = String(required=True)
     
-    def mutate(root, info, input):
-        return RequestEmailChange()
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        return cls()
 
 
-class ChangeEmail(Mutation):
+class ChangeEmail(ClientIDMutation):
     """
     changes the email for the user account
     associated with the given email address.
     """
-    class Arguments:
-        input = ChangeEmailInput(required=True)
+    class Input:
+        email = String(required=True)
+        change_code = String(required=True)
 
-    def mutate(root, info, input):
-        return RequestEmailChange()
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **input):
+        return cls()
 
 
 class UserMutation:
     register = Register.Field()
     login = Login.Field()
     reset_password = ResetPassword.Field()
-    request_reset = RequestReset.Field()
+    request_password_reset = RequestPasswordReset.Field()
     update_current_user = UpdateCurrentUser.Field()
     request_email_change = RequestEmailChange.Field()
     change_email = ChangeEmail.Field()

@@ -18,6 +18,7 @@ mostly start off my projects with this template.
 - [x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
 - [x] PostgreSQL and [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) support.
 - [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
+- [x] Offers support for the [Relay](https://github.com/facebook/relay) API spec.
 - [ ] GraphQL file uploads support.
 - [ ] Uses [Pytest](https://github.com/pytest-dev/pytest) and [Factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.
 - [ ] Comes with an authentication system out of the box.
