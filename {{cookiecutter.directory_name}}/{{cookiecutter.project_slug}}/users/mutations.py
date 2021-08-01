@@ -1,6 +1,7 @@
 import strawberry
 
 from .types import RegisterInput, LoginInput
+from .types import ResetPasswordInput, RequestResetInput
 
 
 class UserMutation:
@@ -20,7 +21,7 @@ class UserMutation:
         return True
 
     @strawberry.mutation
-    def reset_password(self) -> bool:
+    def reset_password(self, input: ResetPasswordInput) -> bool:
         """
         resets the password for the user account
         associated with the given email address.
@@ -28,7 +29,7 @@ class UserMutation:
         return True
     
     @strawberry.mutation
-    def send_password_reset(self) -> bool:
+    def request_reset(self, input: RequestResetInput) -> bool:
         """
         sends a password reset link to the
         provided email address.

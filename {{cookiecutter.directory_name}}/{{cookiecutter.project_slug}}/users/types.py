@@ -24,6 +24,17 @@ class RegisterInput:
     password: str
 
 
+@strawberry.input
+class ResetPasswordInput:
+    password: str
+    reset_token: str
+
+
+@strawberry.input
+class RequestResetInput:
+    email: str
+
+
 @strawberry.type
 class LoginPayload:
     pass
