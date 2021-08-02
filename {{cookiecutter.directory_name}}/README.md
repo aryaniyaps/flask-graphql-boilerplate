@@ -45,3 +45,11 @@ flask db upgrade
 ```
 
 To apply the migration.
+
+## Running tests
+
+to run the test suite for the project, run the following command.
+
+```cmd
+flask test
+```
