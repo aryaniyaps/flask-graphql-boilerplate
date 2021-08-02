@@ -11,7 +11,7 @@ class UserQuery(ObjectType):
         """
         looks up an user with the given ID.
         """
-        pass
+        return UserType.get_node(info=info, id=id)
 
     def resolve_viewer(root, info):
         """
