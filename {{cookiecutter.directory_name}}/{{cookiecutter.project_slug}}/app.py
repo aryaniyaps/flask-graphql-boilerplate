@@ -8,7 +8,7 @@ from {{ cookiecutter.project_slug }} import schema
 from {{ cookiecutter.project_slug }} import extensions
 from {{ cookiecutter.project_slug }} import commands
 from {{ cookiecutter.project_slug }} import uploads
-from {{ cookiecutter.project_slug }} import users
+from {{ cookiecutter.project_slug }}.users.models import User
 
 
 def create_app(config="{{ cookiecutter.project_slug }}.settings"):
@@ -66,13 +66,12 @@ def register_shell_context(app):
     registers shell context processors for the server.
     """
 
-    def shell_context():
-        return {
+    app.shell_context_processor(
+        lambda: {
             'db': extensions.db,
-            'User': users.models.User
+            'User': User
         }
-
-    app.shell_context_processor(shell_context)
+    )
 
 
 def register_context_processors(app):

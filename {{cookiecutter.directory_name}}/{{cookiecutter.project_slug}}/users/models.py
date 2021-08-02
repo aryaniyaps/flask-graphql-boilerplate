@@ -32,6 +32,11 @@ class User(BaseModel):
         default=True,
         nullable=False
     )
+    is_staff = db.Column(
+        db.Boolean,
+        default=False,
+        nullable=False
+    )
 
     def __repr__(self):
         return "<User %s>" % self.id
