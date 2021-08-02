@@ -4,16 +4,6 @@ from graphene_file_upload.scalars import Upload
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
 
 
-class Register(BaseMutation):
-    """
-    creates an user instance.
-    """
-    class Input:
-        email = String(required=True)
-        username = String(required=True)
-        password = String(required=True)
-
-
 class Login(BaseMutation):
     """
     logs the user associated with the provided
@@ -21,6 +11,16 @@ class Login(BaseMutation):
     """
     class Input:
         email = String(required=True)
+        password = String(required=True)
+
+
+class CreateUser(BaseMutation):
+    """
+    creates an user instance.
+    """
+    class Input:
+        email = String(required=True)
+        username = String(required=True)
         password = String(required=True)
 
 
@@ -73,8 +73,8 @@ class ChangeEmail(BaseMutation):
 
 
 class UserMutation(ObjectType):
-    register = Register.Field()
     login = Login.Field()
+    create_user = CreateUser.Field()
     reset_password = ResetPassword.Field()
     request_password_reset = RequestPasswordReset.Field()
     update_current_user = UpdateCurrentUser.Field()
