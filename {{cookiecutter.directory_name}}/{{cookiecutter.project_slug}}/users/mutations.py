@@ -1,9 +1,10 @@
-from graphene import String
-from graphene.relay import ClientIDMutation
+from graphene import String, ObjectType
 from graphene_file_upload.scalars import Upload
 
+from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
 
-class Register(ClientIDMutation):
+
+class Register(BaseMutation):
     """
     creates an user instance.
     """
@@ -11,13 +12,9 @@ class Register(ClientIDMutation):
         email = String(required=True)
         username = String(required=True)
         password = String(required=True)
-    
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        return cls()
 
 
-class Login(ClientIDMutation):
+class Login(BaseMutation):
     """
     logs the user associated with the provided
     credentials in, if they were correct.
@@ -26,12 +23,8 @@ class Login(ClientIDMutation):
         email = String(required=True)
         password = String(required=True)
 
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        return cls()
 
-
-class ResetPassword(ClientIDMutation):
+class ResetPassword(BaseMutation):
     """
     resets the password for the user account
     associated with the given email address.
@@ -39,26 +32,19 @@ class ResetPassword(ClientIDMutation):
     class Input:
         password = String(required=True)
         reset_token = String(required=True)
-
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        return cls()
+        email = String(required=True)
 
 
-class RequestPasswordReset(ClientIDMutation):
+class RequestPasswordReset(BaseMutation):
     """
     sends a password reset link to the
     provided email address.
     """
     class Input:
         email = String(required=True)
-    
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        return cls()
 
 
-class UpdateCurrentUser(ClientIDMutation):
+class UpdateCurrentUser(BaseMutation):
     """
     updates the current user instance.
     """
@@ -66,25 +52,17 @@ class UpdateCurrentUser(ClientIDMutation):
         avatar = Upload()
         username = String()
 
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        return cls()
 
-
-class RequestEmailChange(ClientIDMutation):
+class RequestEmailChange(BaseMutation):
     """
     sends a email change link to the
     provided email address.
     """
     class Input:
         email = String(required=True)
-    
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        return cls()
 
 
-class ChangeEmail(ClientIDMutation):
+class ChangeEmail(BaseMutation):
     """
     changes the email for the user account
     associated with the given email address.
@@ -93,12 +71,8 @@ class ChangeEmail(ClientIDMutation):
         email = String(required=True)
         change_code = String(required=True)
 
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
-        return cls()
 
-
-class UserMutation:
+class UserMutation(ObjectType):
     register = Register.Field()
     login = Login.Field()
     reset_password = ResetPassword.Field()

@@ -4,10 +4,7 @@ from {{ cookiecutter.project_slug }}.users.queries import UserQuery
 from {{ cookiecutter.project_slug }}.users.mutations import UserMutation
 
 
-class Query(
-    UserQuery,
-    ObjectType
-):
+class Query(UserQuery):
     """
     this is the root `query` field for the
     GraphQL schema. This class must include
@@ -18,10 +15,7 @@ class Query(
     node = relay.Node.Field()
 
 
-class Mutation(
-    UserMutation,
-    ObjectType
-):
+class Mutation(UserMutation):
     """
     this is the root `mutation` field for 
     the GraphQL schema. This class must include
