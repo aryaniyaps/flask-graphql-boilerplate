@@ -22,7 +22,6 @@ mostly start off my projects with this template.
 - [x] GraphQL file uploads support.
 - [ ] Uses [Pytest](https://github.com/pytest-dev/pytest) and [Factory-boy](https://github.com/FactoryBoy/factory_boy) for testing.
 - [ ] Comes with an authentication system out of the box.
-- [ ] optimized for Single Page Applications.
 
 ## Using the boilerplate
 
