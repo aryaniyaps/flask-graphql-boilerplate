@@ -7,32 +7,27 @@ class User(BaseModel):
     __tablename__ = "users"
 
     email = db.Column(
-        "email",
         db.String(255),
         unique=True,
         nullable=False,
         index=True
     )
     username = db.Column(
-        "username",
         db.String(32),
         unique=True,
         nullable=False,
         index=True
     )
     password = db.Column(
-        "password",
         db.String(255),
         nullable=False
     )
     avatar = db.Column(
-        "avatar",
         db.String(255),
         default="default.jpg",
         required=True
     )
     is_active = db.Column(
-        "is_active",
         db.Boolean,
         default=True,
         nullable=False

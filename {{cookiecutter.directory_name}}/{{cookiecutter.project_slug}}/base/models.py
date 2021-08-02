@@ -12,20 +12,17 @@ class BaseModel(db.Model):
     __abstract__ = True
 
     id = db.Column(
-        "id",
         db.Integer,
         primary_key=True,
         autoincrement=True
     )
 
     created_at = db.Column(
-        "created_at",
         db.DateTime,
         nullable=False,
         default=db.func.now()
     )
     updated_at = db.Column(
-        "updated_at",
         db.DateTime,
         nullable=False,
         onupdate=db.func.now(),
