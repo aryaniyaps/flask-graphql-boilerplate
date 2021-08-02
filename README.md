@@ -16,7 +16,7 @@ mostly start off my projects with this template.
 - [x] Works with Python 3.8
 - [x] Uses [Graphene](https://github.com/graphql-python/graphene) for the GraphQL schema.
 - [x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
-- [x] PostgreSQL and [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) support.
+- [x] PostgreSQL and [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) support (with migrations).
 - [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
 - [x] Offers support for the [Relay](https://github.com/facebook/relay) API spec.
 - [x] GraphQL file uploads support.
