@@ -44,6 +44,7 @@ def register_extensions(app):
     extensions.mail.init_app(app)
     extensions.db.init_app(app)
     extensions.migrate.init_app(app, extensions.db)
+    extensions.admin.init_app(app)
     extensions.bcrypt.init_app(app)
 
 def register_commands(app):
