@@ -6,6 +6,7 @@ from flask_graphql import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema
 from {{ cookiecutter.project_slug }} import extensions
+from {{ cookiecutter.project_slug }} import commands
 from {{ cookiecutter.project_slug }} import uploads
 from {{ cookiecutter.project_slug }} import users
 
@@ -29,6 +30,7 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
     add_upload_sets(app)
 
     register_extensions(app)
+    register_commands(app)
     register_context_processors(app)
     register_shell_context(app)
 
@@ -43,6 +45,12 @@ def register_extensions(app):
     extensions.db.init_app(app)
     extensions.migrate.init_app(app, extensions.db)
     extensions.bcrypt.init_app(app)
+
+def register_commands(app):
+    """
+    registers commands for the server.
+    """
+    app.cli.add_command(commands.test)
 
 
 def add_upload_sets(app):
