@@ -5,7 +5,7 @@ from .types import UserType
 
 class UserQuery(ObjectType):
     user = Field(UserType, id=ID(required=True))
-    current_user = Field(UserType)
+    viewer = Field(UserType)
 
     def resolve_user(root, info, id):
         """
@@ -13,7 +13,7 @@ class UserQuery(ObjectType):
         """
         pass
 
-    def resolve_current_user(root, info):
+    def resolve_viewer(root, info):
         """
         looks up the authenticated user.
         """
