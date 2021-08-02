@@ -3,8 +3,8 @@ from pathlib import Path
 
 import click
 
+# project root directory.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEST_PATH = os.path.join(BASE_DIR, "tests")
 
 
 @click.command()
@@ -14,4 +14,6 @@ def test():
     """
     import pytest
     
-    exit(pytest.main(TEST_PATH, "--verbose"))
+    exit(pytest.main(
+        os.path.join(BASE_DIR, "tests")
+    ))
