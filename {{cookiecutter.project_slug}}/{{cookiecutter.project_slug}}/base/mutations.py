@@ -6,7 +6,7 @@ from .types import ErrorType
 
 class BaseMutation(ClientIDMutation):
     """
-    an abstract mutation which executes input
+    An abstract mutation which executes input
     validation, permission checking and more.
     """
     success = Boolean(
@@ -25,7 +25,29 @@ class BaseMutation(ClientIDMutation):
     @classmethod
     def mutate_and_get_payload(cls, root, info, **data):
         """
-        performs the mutation after checking permissions.
+        Performs the mutation after checking permissions.
         Also handles validation errors.
         """
+        cls.validate_input(cls, root, info, **data)
+        return cls.perform_mutate(root, info, **data)
+    
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        """
+        Executes the mutation and returns the payload.
+        """
         raise NotImplementedError
+
+    @classmethod
+    def validate_input(cls, root, info, **data):
+        """
+        Performs validation on the mutation's input.
+        """
+        raise NotImplementedError
+    
+    @classmethod
+    def handle_errors(cls, errors):
+        """
+        Returns a formatted array of errors.
+        """
+        pass
