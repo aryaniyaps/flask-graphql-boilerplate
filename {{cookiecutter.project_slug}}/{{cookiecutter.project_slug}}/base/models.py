@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from {{ cookiecutter.project_slug }}.extensions import db
 
 
