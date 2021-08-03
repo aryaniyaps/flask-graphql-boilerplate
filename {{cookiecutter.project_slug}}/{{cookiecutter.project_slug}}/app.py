@@ -6,8 +6,8 @@ from flask_graphql import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema
 from {{ cookiecutter.project_slug }} import commands
-from {{ cookiecutter.project_slug }}.extensions import db, migrate, admin
 from {{ cookiecutter.project_slug }}.extensions import mail, bcrypt
+from {{ cookiecutter.project_slug }}.extensions import db, migrate, admin
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
@@ -44,9 +44,9 @@ def configure_extensions(app):
     migrate.init_app(app, db)
     bcrypt.init_app(app)
 
-
     admin.init_app(app)
     admin.add_view(ModelView(User, db.session))
+
 
 def configure_commands(app):
     """

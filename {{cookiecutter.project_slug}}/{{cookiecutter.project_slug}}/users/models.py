@@ -24,7 +24,7 @@ class User(BaseModel):
     avatar = db.Column(
         db.String(255),
         default="default.jpg",
-        required=True
+        nullable=False
     )
     is_active = db.Column(
         db.Boolean,
