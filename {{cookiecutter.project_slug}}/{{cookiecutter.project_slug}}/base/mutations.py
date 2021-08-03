@@ -1,15 +1,26 @@
+from graphene import Boolean, List, NonNull
 from graphene.relay import ClientIDMutation
+
+from .types import ErrorType
 
 
 class BaseMutation(ClientIDMutation):
     """
     an abstract mutation which executes input
     validation, permission checking and more.
-    Subclasses `ClientIDMutation` to keep track
-    of client mutation IDs.
     """
     class Meta:
         abstract = True
+
+    success = Boolean(
+        required=True, 
+        default_value=True
+    )
+    errors = List(
+        of_type=NonNull(
+            of_type=ErrorType
+        )
+    )
     
     @classmethod
     def mutate_and_get_payload(cls, root, info, **data):
