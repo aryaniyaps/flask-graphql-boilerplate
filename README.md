@@ -22,7 +22,6 @@ mostly start off my projects with this template.
 - [x] Offers complete support for the [Relay](https://github.com/facebook/relay) API spec.
 - [x] GraphQL file uploads support.
 - [x] Uses [Pytest](https://github.com/pytest-dev/pytest) and [Factory-Boy](https://github.com/FactoryBoy/factory_boy) for testing.
-- [ ] Pre-Configured [Flask-Admin](https://github.com/flask-admin/flask-admin) interface.
 - [ ] Comes with an authentication system out of the box.
 
 ## Using the boilerplate

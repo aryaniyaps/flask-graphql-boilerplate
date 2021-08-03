@@ -1,12 +1,11 @@
 from datetime import datetime
 
 from flask import Flask
-from flask_admin.contrib.sqla import ModelView
 from flask_graphql import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema, commands
 from {{ cookiecutter.project_slug }}.extensions import mail, bcrypt
-from {{ cookiecutter.project_slug }}.extensions import db, migrate, admin
+from {{ cookiecutter.project_slug }}.extensions import db, migrate
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
@@ -42,9 +41,6 @@ def configure_extensions(app):
     db.init_app(app)
     migrate.init_app(app, db)
     bcrypt.init_app(app)
-
-    admin.init_app(app)
-    admin.add_view(ModelView(User, db.session))
 
 
 def configure_commands(app):
