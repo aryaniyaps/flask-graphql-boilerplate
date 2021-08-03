@@ -15,5 +15,5 @@ def test():
     import pytest
     
     exit(pytest.main(
-        os.path.join(BASE_DIR, "tests")
+        [os.path.join(BASE_DIR, "tests")]
     ))
