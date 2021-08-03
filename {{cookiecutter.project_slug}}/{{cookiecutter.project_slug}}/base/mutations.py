@@ -9,9 +9,6 @@ class BaseMutation(ClientIDMutation):
     an abstract mutation which executes input
     validation, permission checking and more.
     """
-    class Meta:
-        abstract = True
-
     success = Boolean(
         required=True, 
         default_value=True
@@ -21,6 +18,9 @@ class BaseMutation(ClientIDMutation):
             of_type=ErrorType
         )
     )
+
+    class Meta:
+        abstract = True
     
     @classmethod
     def mutate_and_get_payload(cls, root, info, **data):
