@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "70cec99534e0fe750269da7a365a8e7aa958b627695b4226b988221fb8f3f807"
+            "sha256": "17a26f5d2f84a983160058a2a9cecddd6b94258cdeb910bae01d5b13df9af30c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -175,13 +175,6 @@
             ],
             "index": "pypi",
             "version": "==2.5.1"
-        },
-        "flask-uploads": {
-            "hashes": [
-                "sha256:53ecbd6033667d50ae02b63adebbaa33c7fc56c09e5293025810cf9d841ecb02"
-            ],
-            "index": "pypi",
-            "version": "==0.2.1"
         },
         "graphene": {
             "hashes": [

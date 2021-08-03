@@ -1,13 +1,13 @@
 from datetime import datetime
 
 from flask import Flask
-from flask_uploads import configure_uploads
+from flask_admin.contrib.sqla import ModelView
 from flask_graphql import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema
-from {{ cookiecutter.project_slug }} import extensions
 from {{ cookiecutter.project_slug }} import commands
-from {{ cookiecutter.project_slug }} import uploads
+from {{ cookiecutter.project_slug }}.extensions import db, migrate, admin
+from {{ cookiecutter.project_slug }}.extensions import mail, bcrypt
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
@@ -27,56 +27,50 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
         )
     )
 
-    add_upload_sets(app)
-
-    register_extensions(app)
-    register_commands(app)
-    register_context_processors(app)
-    register_shell_context(app)
+    configure_extensions(app)
+    configure_commands(app)
+    configure_context_processors(app)
+    configure_shell_context(app)
 
     return app
 
 
-def register_extensions(app):
+def configure_extensions(app):
     """
-    registers extensions for the server.
+    configures extensions for the server.
     """
-    extensions.mail.init_app(app)
-    extensions.db.init_app(app)
-    extensions.migrate.init_app(app, extensions.db)
-    extensions.admin.init_app(app)
-    extensions.bcrypt.init_app(app)
+    mail.init_app(app)
+    db.init_app(app)
+    migrate.init_app(app, db)
+    bcrypt.init_app(app)
 
-def register_commands(app):
+
+    admin.init_app(app)
+    admin.add_view(ModelView(User, db.session))
+
+def configure_commands(app):
     """
-    registers commands for the server.
+    configures commands for the server.
     """
     app.cli.add_command(commands.test)
 
 
-def add_upload_sets(app):
+def configure_shell_context(app):
     """
-    adds upload sets for the server.
-    """
-    configure_uploads(app, uploads.avatar_set)
-
-
-def register_shell_context(app):
-    """
-    registers shell context processors for the server.
+    configures shell context processors for the server.
     """
 
     app.shell_context_processor(
         lambda: {
-            'db': extensions.db,
+            'db': db,
             'User': User
         }
     )
 
 
-def register_context_processors(app):
+def configure_context_processors(app):
     """
-    registers context processors which
+    configures context processors which
     inject values into templates.
     """
 

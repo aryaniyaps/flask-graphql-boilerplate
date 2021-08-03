@@ -1,6 +1,5 @@
 from {{ cookiecutter.project_slug }}.base.models import BaseModel
 from {{ cookiecutter.project_slug }}.extensions import db, bcrypt
-from {{ cookiecutter.project_slug }}.uploads import avatar_set
 
 
 class User(BaseModel):
@@ -41,14 +40,6 @@ class User(BaseModel):
     def __repr__(self):
         return "<User %s>" % self.id
 
-    @property
-    def avatar_url(self):
-        """
-        returns an avatar URL for the user 
-        instance, based on their avatar hash.
-        """
-        return avatar_set.url(self.avatar)
-
 
     def set_password(self, password: str):
         """
@@ -66,12 +57,3 @@ class User(BaseModel):
             password=password,
             pw_hash=self.password
         )
-
-    def inactivate(self):
-        """
-        sets the `is_active` flag to false on 
-        the user instance This should generally be 
-        used as an alternative to hard deletes.
-        """
-        self.is_active = False
-        self.save()
