@@ -4,8 +4,7 @@ from flask import Flask
 from flask_admin.contrib.sqla import ModelView
 from flask_graphql import GraphQLView
 
-from {{ cookiecutter.project_slug }} import schema
-from {{ cookiecutter.project_slug }} import commands
+from {{ cookiecutter.project_slug }} import schema, commands
 from {{ cookiecutter.project_slug }}.extensions import mail, bcrypt
 from {{ cookiecutter.project_slug }}.extensions import db, migrate, admin
 from {{ cookiecutter.project_slug }}.users.models import User
@@ -22,7 +21,7 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
         rule="/graphql",
         view_func=GraphQLView.as_view(
             name="graphql",
-            schema=schema,
+            schema=schema.schema,
             graphiql=app.config.get("DEBUG")
         )
     )
