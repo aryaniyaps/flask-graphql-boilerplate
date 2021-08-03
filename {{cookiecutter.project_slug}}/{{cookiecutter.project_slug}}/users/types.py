@@ -5,6 +5,9 @@ from .models import User
 
 
 class UserType(SQLAlchemyObjectType):
+    """
+    An individual user account.
+    """
     class Meta:
         name = "User"
         model = User

@@ -6,70 +6,110 @@ from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
 
 class Login(BaseMutation):
     """
-    logs the user associated with the provided
+    Logs the user associated with the provided
     credentials in, if they were correct.
     """
     class Input:
-        email = String(required=True)
-        password = String(required=True)
+        email = String(
+            required=True,
+            description="The email of the user."
+        )
+        password = String(
+            required=True,
+            description="The password of the user."
+        )
 
 
 class CreateUser(BaseMutation):
     """
-    creates an user instance.
+    Creates an user instance.
     """
     class Input:
-        email = String(required=True)
-        username = String(required=True)
-        password = String(required=True)
+        email = String(
+            required=True,
+            description="The email of the user."
+        )
+        username = String(
+            required=True,
+            description="The username of the user."
+        )
+        password = String(
+            required=True,
+            description="The password of the user."
+        )
 
 
 class ResetPassword(BaseMutation):
     """
-    resets the password for the user account
+    Resets the password for the user account
     associated with the given email address.
     """
     class Input:
-        password = String(required=True)
-        reset_token = String(required=True)
-        email = String(required=True)
+        password = String(
+            required=True,
+            description="The new password for the user account."
+        )
+        reset_token = String(
+            required=True,
+            description="The password reset token."
+        )
+        email = String(
+            required=True,
+            description="The email of the user account."
+        )
 
 
 class RequestPasswordReset(BaseMutation):
     """
-    sends a password reset link to the
+    Sends a password reset link to the
     provided email address.
     """
     class Input:
-        email = String(required=True)
+        email = String(
+            required=True,
+            description="The email to send the password reset link to."
+        )
 
 
 class UpdateCurrentUser(BaseMutation):
     """
-    updates the current user instance.
+    Updates the current user instance.
     """
     class Input:
-        avatar = Upload()
-        username = String()
+        avatar = Upload(
+            description="The user's new avatar file."
+        )
+        username = String(
+            description="The user's new username."
+        )
 
 
 class RequestEmailChange(BaseMutation):
     """
-    sends a email change link to the
+    Sends a email change link to the
     provided email address.
     """
     class Input:
-        email = String(required=True)
+        email = String(
+            required=True,
+            description="The email to send the email change link to."
+        )
 
 
 class ChangeEmail(BaseMutation):
     """
-    changes the email for the user account
+    Changes the email for the user account
     associated with the given email address.
     """
     class Input:
-        email = String(required=True)
-        change_code = String(required=True)
+        email = String(
+            required=True,
+            description="The old email of the user account."
+        )
+        change_code = String(
+            required=True,
+            description="The email change code."
+        )
 
 
 class UserMutation(ObjectType):

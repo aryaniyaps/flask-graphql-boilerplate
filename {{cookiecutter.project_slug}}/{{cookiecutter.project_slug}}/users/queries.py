@@ -4,13 +4,17 @@ from graphene.relay import Node
 from .types import UserType
 
 
-class UserQuery(ObjectType):
-    viewer = Field(type=UserType)
-    user = Node.Field(type=UserType)
+def resolve_viewer(root, info):
+    pass
 
-    @staticmethod
-    def resolve_viewer(root, info):
-        """
-        looks up the authenticated user.
-        """
-        pass
+
+class UserQuery(ObjectType):
+    user = Node.Field(
+        type=UserType,
+        description="Look up an user by ID."
+    )
+    viewer = Field(
+        type=UserType,
+        resolver=resolve_viewer,
+        description="Look up the current user."
+    )
