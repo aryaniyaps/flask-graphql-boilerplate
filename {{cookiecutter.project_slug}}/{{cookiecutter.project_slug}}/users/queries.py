@@ -8,6 +8,7 @@ class UserQuery(ObjectType):
     viewer = Field(type=UserType)
     user = Node.Field(type=UserType)
 
+    @staticmethod
     def resolve_viewer(root, info):
         """
         looks up the authenticated user.
