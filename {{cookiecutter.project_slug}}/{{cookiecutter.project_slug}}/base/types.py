@@ -3,7 +3,7 @@ from graphene import ObjectType, String, List, NonNull
 
 class ErrorType(ObjectType):
     """
-    a set of error messages which map 
+    A set of error messages which map 
     to a specific input field.
     """
     field = String(required=True)

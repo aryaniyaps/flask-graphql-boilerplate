@@ -3,7 +3,7 @@ from {{ cookiecutter.project_slug }}.extensions import db
 
 class BaseModel(db.Model):
     """
-    an abstract model which provides
+    An abstract model which provides
     a set of base fields. Every model
     created must subclass this class.
     """

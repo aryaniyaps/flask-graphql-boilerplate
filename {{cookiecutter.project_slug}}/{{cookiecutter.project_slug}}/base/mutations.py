@@ -1,4 +1,4 @@
-from graphene import Boolean, List, NonNull
+from graphene import Boolean, List
 from graphene.relay import ClientIDMutation
 
 from .types import ErrorType
@@ -14,9 +14,8 @@ class BaseMutation(ClientIDMutation):
         default_value=True
     )
     errors = List(
-        of_type=NonNull(
-            of_type=ErrorType
-        )
+        required=True,
+        of_type=ErrorType
     )
 
     class Meta:
