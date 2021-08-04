@@ -1,7 +1,8 @@
-from graphene import String, ObjectType
+from graphene import String, Field, ObjectType
 from graphene_file_upload.scalars import Upload
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from .types import UserType
 
 
 class Login(BaseMutation):
@@ -18,6 +19,13 @@ class Login(BaseMutation):
             required=True,
             description="The password of the user."
         )
+    
+    access_token = String(
+        required=True
+    )
+    refresh_token = String(
+        required=True
+    )
 
 
 class CreateUser(BaseMutation):
@@ -38,6 +46,13 @@ class CreateUser(BaseMutation):
             description="The password of the user."
         )
 
+    user = Field(
+        required=True, 
+        type=UserType
+    )
+    # TODO: return access and refresh tokens
+    # after creating an user.
+
 
 class ResetPassword(BaseMutation):
     """
@@ -57,6 +72,8 @@ class ResetPassword(BaseMutation):
             required=True,
             description="The email of the user account."
         )
+    
+    # TODO: login user after resetting password.
 
 
 class RequestPasswordReset(BaseMutation):
@@ -82,6 +99,11 @@ class UpdateCurrentUser(BaseMutation):
         username = String(
             description="The user's new username."
         )
+    
+    user = Field(
+        required=True, 
+        type=UserType
+    )
 
 
 class RequestEmailChange(BaseMutation):
@@ -110,6 +132,11 @@ class ChangeEmail(BaseMutation):
             required=True,
             description="The email change code."
         )
+
+    user = Field(
+        required=True, 
+        type=UserType
+    )
 
 
 class ChangePassword(BaseMutation):

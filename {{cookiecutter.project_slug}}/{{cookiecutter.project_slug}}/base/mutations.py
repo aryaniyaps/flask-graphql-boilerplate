@@ -52,4 +52,4 @@ class BaseMutation(ClientIDMutation):
         """
         Returns a formatted array of errors.
         """
-        pass
+        return cls(success=False)
