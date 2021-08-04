@@ -112,6 +112,22 @@ class ChangeEmail(BaseMutation):
         )
 
 
+class ChangePassword(BaseMutation):
+    """
+    Changes the current user's password, if
+    the provided password was correct.
+    """
+    class Input:
+        new_password = String(
+            required=True,
+            description="The new password for the account."
+        )
+        old_password = String(
+            required=True,
+            description="The old password for the account."
+        )
+
+
 class UserMutation(ObjectType):
     login = Login.Field()
     create_user = CreateUser.Field()
@@ -120,3 +136,4 @@ class UserMutation(ObjectType):
     update_current_user = UpdateCurrentUser.Field()
     request_email_change = RequestEmailChange.Field()
     change_email = ChangeEmail.Field()
+    change_password = ChangePassword.Field()

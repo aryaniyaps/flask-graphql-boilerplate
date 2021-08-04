@@ -27,8 +27,11 @@ class BaseMutation(ClientIDMutation):
         Performs the mutation after checking permissions.
         Also handles validation errors.
         """
-        cls.validate_input(cls, root, info, **data)
-        return cls.perform_mutate(root, info, **data)
+        try:
+            cls.validate_input(cls, root, info, **data)
+            return cls.perform_mutate(root, info, **data)
+        except Exception as err:
+            return cls.handle_errors(err)
     
     @classmethod
     def perform_mutate(cls, root, info, **data):
