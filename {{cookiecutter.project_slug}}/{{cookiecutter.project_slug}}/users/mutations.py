@@ -1,9 +1,7 @@
 from graphene import String, Field, ObjectType
 from graphene_file_upload.scalars import Upload
 
-from {{ cookiecutter.project_slug }}.extensions import db
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
-from .models import User
 from .types import UserType
 
 
