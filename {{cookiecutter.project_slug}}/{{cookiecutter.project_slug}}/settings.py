@@ -12,7 +12,7 @@ ENV = env.str("FLASK_ENV", default="development")
 SECRET_KEY = env.str("SECRET_KEY")
 
 # flask-mongoengine configuration.
-MONGODB_DB_SETTINGS = {
+MONGODB_SETTINGS = {
     "host": env.str("DATABASE_URL"),
     "connect": env.bool("MONGODB_CONNECT", default=True)
 }
