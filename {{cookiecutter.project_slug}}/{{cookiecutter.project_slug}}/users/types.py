@@ -1,10 +1,10 @@
 from graphene import relay
-from graphene_sqlalchemy import SQLAlchemyObjectType
+from graphene_mongo import MongoengineObjectType
 
 from .models import User
 
 
-class UserType(SQLAlchemyObjectType):
+class UserType(MongoengineObjectType):
     """
     An individual user account.
     """

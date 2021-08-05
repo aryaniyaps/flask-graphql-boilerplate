@@ -1,44 +1,35 @@
-from {{ cookiecutter.project_slug }}.base.models import BaseModel
+from {{ cookiecutter.project_slug }}.base.models import BaseDocument
 from {{ cookiecutter.project_slug }}.extensions import db, bcrypt
 
 
-class User(BaseModel):
-    __tablename__ = "users"
-
-    email = db.Column(
-        db.String(255),
+class User(BaseDocument):
+    email = db.EmailField(
         unique=True,
-        nullable=False,
-        index=True
+        required=True,
     )
-    username = db.Column(
-        db.String(32),
+    username = db.StringField(
+        min_length=2,
+        max_length=32,
+        required=True,
         unique=True,
-        nullable=False,
-        index=True
     )
-    password = db.Column(
-        db.String(255),
-        nullable=False
+    password = db.StringField(
+        min_length=8,
+        regex=r"[A-Za-z0-9@#$%^&+=]",
+        required=True,
     )
-    avatar = db.Column(
-        db.String(255),
+    avatar = db.StringField(
         default="default.jpg",
-        nullable=False
+        required=True
     )
-    is_active = db.Column(
-        db.Boolean,
+    is_active = db.BooleanField(
         default=True,
-        nullable=False
+        required=True
     )
-    is_staff = db.Column(
-        db.Boolean,
+    is_staff = db.BooleanField(
         default=False,
-        nullable=False
+        required=True
     )
-
-    def __repr__(self):
-        return "<User %s>" % self.id
 
 
     def set_password(self, password: str):

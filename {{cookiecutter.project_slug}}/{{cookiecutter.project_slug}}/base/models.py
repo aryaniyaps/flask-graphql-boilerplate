@@ -1,28 +1,33 @@
+from datetime import datetime
+
 from {{ cookiecutter.project_slug }}.extensions import db
 
 
-class BaseModel(db.Model):
+class BaseDocument(db.Document):
     """
-    An abstract model which provides
-    a set of base fields. Every model
+    An abstract document which provides
+    a set of base fields. Every document
     created must subclass this class.
     """
-    __abstract__ = True
+    meta = {
+        "abstract": True
+    }
 
-    id = db.Column(
-        db.Integer,
-        primary_key=True,
-        autoincrement=True
+    created_at = db.DateTimeField(
+        required=True,
+        default=datetime.now()
+    )
+    updated_at = db.DateTimeField(
+        required=True,
+        default=datetime.now()
     )
 
-    created_at = db.Column(
-        db.DateTime,
-        nullable=False,
-        default=db.func.now()
-    )
-    updated_at = db.Column(
-        db.DateTime,
-        nullable=False,
-        onupdate=db.func.now(),
-        default=db.func.now()
-    )
+    def save(self, *args, **kwargs):
+        """
+        keeps track of the `created_at` and
+        `updated_at` fields for the document.
+        """
+        if not self.created_at:
+            self.created_at = datetime.now()
+        self.updated_at = datetime.now()
+        super(BaseDocument, self).save(*args, **kwargs)

@@ -1,7 +1,9 @@
 from graphene import String, Field, ObjectType
 from graphene_file_upload.scalars import Upload
 
+from {{ cookiecutter.project_slug }}.extensions import db
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from .models import User
 from .types import UserType
 
 
@@ -26,6 +28,10 @@ class Login(BaseMutation):
     refresh_token = String(
         required=True
     )
+
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass
 
 
 class CreateUser(BaseMutation):
@@ -53,6 +59,10 @@ class CreateUser(BaseMutation):
     # TODO: return access and refresh tokens
     # after creating an user.
 
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass
+
 
 class ResetPassword(BaseMutation):
     """
@@ -75,6 +85,10 @@ class ResetPassword(BaseMutation):
     
     # TODO: login user after resetting password.
 
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass
+
 
 class RequestPasswordReset(BaseMutation):
     """
@@ -86,6 +100,10 @@ class RequestPasswordReset(BaseMutation):
             required=True,
             description="The email to send the password reset link to."
         )
+    
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass
 
 
 class UpdateCurrentUser(BaseMutation):
@@ -105,6 +123,10 @@ class UpdateCurrentUser(BaseMutation):
         type=UserType
     )
 
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass
+
 
 class RequestEmailChange(BaseMutation):
     """
@@ -116,6 +138,10 @@ class RequestEmailChange(BaseMutation):
             required=True,
             description="The email to send the email change link to."
         )
+    
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass
 
 
 class ChangeEmail(BaseMutation):
@@ -138,6 +164,10 @@ class ChangeEmail(BaseMutation):
         type=UserType
     )
 
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass
+
 
 class ChangePassword(BaseMutation):
     """
@@ -153,6 +183,10 @@ class ChangePassword(BaseMutation):
             required=True,
             description="The old password for the account."
         )
+    
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass
 
 
 class UserMutation(ObjectType):
