@@ -2,6 +2,7 @@ from graphene import String, Field, ObjectType
 from graphene_file_upload.scalars import Upload
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from .models import User
 from .types import UserType
 
 
@@ -59,7 +60,8 @@ class CreateUser(BaseMutation):
 
     @classmethod
     def perform_mutate(cls, root, info, **data):
-        pass
+        user = User.objects.create(**data)
+        return cls(user=user)
 
 
 class ResetPassword(BaseMutation):
