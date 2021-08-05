@@ -1,5 +1,6 @@
 from graphene import Boolean, List
 from graphene.relay import ClientIDMutation
+from mongoengine.errors import ValidationError
 
 from .types import ErrorType
 
@@ -28,10 +29,9 @@ class BaseMutation(ClientIDMutation):
         Also handles validation errors.
         """
         try:
-            cls.validate_input(cls, root, info, **data)
             return cls.perform_mutate(root, info, **data)
-        except Exception as err:
-            return cls.handle_errors(err)
+        except ValidationError as err:
+            return cls.handle_error(err)
     
     @classmethod
     def perform_mutate(cls, root, info, **data):
@@ -39,17 +39,19 @@ class BaseMutation(ClientIDMutation):
         Executes the mutation and returns the payload.
         """
         raise NotImplementedError
-
-    @classmethod
-    def validate_input(cls, root, info, **data):
-        """
-        Performs validation on the mutation's input.
-        """
-        raise NotImplementedError
     
     @classmethod
-    def handle_errors(cls, errors):
+    def handle_error(cls, error):
         """
         Returns a formatted array of errors.
         """
-        return cls(success=False)
+        formatted_errors = [
+            ErrorType(
+                field=error.field_name, 
+                messages=error.errors
+            )
+        ]
+        return cls(
+            success=False, 
+            errors=formatted_errors
+        )
