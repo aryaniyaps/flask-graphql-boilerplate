@@ -70,7 +70,7 @@ class Login(BaseMutation):
             user.save()
         
         # TODO: return access and refresh tokens
-        # after loggin an user in.
+        # after logging an user in.
         return cls(
             success=True,
             user=user,
