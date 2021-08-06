@@ -1,9 +1,11 @@
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError
+from flask import render_template
 from graphene import String, Field, ObjectType
 from graphene_file_upload.scalars import Upload
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from {{ cookiecutter.project_slug }}.emails import send_mail
 from .models import User
 from .types import UserType
 
@@ -187,7 +189,7 @@ class ResetPassword(BaseMutation):
 class RequestPasswordReset(BaseMutation):
     """
     Sends a password reset link to the
-    provided email address.
+    provided email, if it actually exists.
     """
 
     class Input:
@@ -197,7 +199,19 @@ class RequestPasswordReset(BaseMutation):
         )
     
     @classmethod
-    def perform_mutate(cls, root, info, **data):
+    def perform_mutate(cls, root, info, email):
+        user = User.objects(email=email).first()
+        if user is not None:
+            # TODO: generate a reset token.
+            reset_token = "RESET_TOKEN"
+            send_mail(
+                to=user.email,
+                subject="Reset Password",
+                template=render_template(
+                    "emails/password_reset.html",
+                    token=reset_token
+                )
+            )
         return cls(success=True)
 
 

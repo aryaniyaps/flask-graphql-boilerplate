@@ -1,4 +1,4 @@
-# {{ cookiecutter.project_name }} {{ cookiecutter.version }}
+# {{ cookiecutter.project_name }}
 
 {{ cookiecutter.project_description }}
 
