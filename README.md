@@ -12,17 +12,22 @@ mostly start off my projects with this template.
 
 ## Features at a glance
 
-- [x] Built for [Flask](https://github.com/pallets/flask) 2.0.1
-- [x] Works with Python 3.8
-- [x] Uses [Graphene](https://github.com/graphql-python/graphene) for the GraphQL schema.
-- [x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
-- [x] Built in support for sending emails.
-- [x] [MongoEngine](https://github.com/MongoEngine/mongoengine) ODM support.
-- [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
-- [x] Offers complete support for the [Relay](https://github.com/facebook/relay) API spec.
-- [x] GraphQL file uploads support.
-- [x] Uses [Pytest](https://github.com/pytest-dev/pytest) and [Factory-Boy](https://github.com/FactoryBoy/factory_boy) for testing.
-- [ ] Comes with an authentication system out of the box, which handles: - [ ] User email confirmation. - [ ] Password reset. - [ ] User creation/ login. - [x] Storing passwords with [Argon2](https://github.com/hynek/argon2-cffi).
+> _[x] Built for [Flask](https://github.com/pallets/flask) 2.0.1
+> _[x] Works with Python 3.8
+> _[x] Uses [Graphene](https://github.com/graphql-python/graphene) for the GraphQL schema.
+> _[x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
+> _[x] Built in support for sending emails.
+> _[x] [MongoEngine](https://github.com/MongoEngine/mongoengine) ODM support.
+> _[x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
+> _[x] Offers complete support for the [Relay](https://github.com/facebook/relay) API spec.
+> _[x] GraphQL file uploads support.
+> _[x] Uses [Pytest](https://github.com/pytest-dev/pytest) and [Factory-Boy](https://github.com/FactoryBoy/factory_boy) for testing.
+> \_[ ] Comes with an authentication system out of the box, which handles:
+>
+> _[ ] User email confirmation.
+> _[ ] Forgot password/ password reset.
+> _[ ] User creation/ login.
+> _[x] Storing passwords with [Argon2](https://github.com/hynek/argon2-cffi).
 
 ## Using the boilerplate
 
