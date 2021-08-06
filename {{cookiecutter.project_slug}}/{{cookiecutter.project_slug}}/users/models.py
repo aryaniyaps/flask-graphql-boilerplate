@@ -3,6 +3,9 @@ from {{ cookiecutter.project_slug }}.extensions import db, bcrypt
 
 
 class User(BaseDocument):
+    meta = {
+        "collection": "users"
+    }
     email = db.EmailField(
         unique=True,
         required=True,
@@ -30,7 +33,6 @@ class User(BaseDocument):
         default=False,
         required=True
     )
-
 
     def set_password(self, password: str):
         """

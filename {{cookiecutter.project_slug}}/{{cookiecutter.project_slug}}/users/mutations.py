@@ -27,10 +27,43 @@ class Login(BaseMutation):
     refresh_token = String(
         required=True
     )
+    user = Field(
+        required=True, 
+        type=UserType
+    )
 
     @classmethod
-    def perform_mutate(cls, root, info, **data):
-        pass
+    def perform_mutate(cls, root, info, email, password):
+        user = User.objects(email=email).first()
+        if not user:
+            return cls(
+                success=False,
+                errors=[
+                    dict(
+                        field="email",
+                        message="Incorrect email provided."
+                    )
+                ]
+            )
+        if not user.check_password(password):
+            return cls(
+                success=False,
+                errors=[
+                    dict(
+                        field="password",
+                        message="Incorrect password provided."
+                    )
+                ]
+            )
+        
+        # TODO: return access and refresh tokens
+        # after loggin an user in.
+        return cls(
+            success=True,
+            user=user,
+            access_token="",
+            refresh_token=""
+        )
 
 
 class CreateUser(BaseMutation):
@@ -59,9 +92,40 @@ class CreateUser(BaseMutation):
     # after creating an user.
 
     @classmethod
-    def perform_mutate(cls, root, info, **data):
-        user = User.objects.create(**data)
-        return cls(user=user)
+    def perform_mutate(cls, root, info, email, username, password):
+        if User.objects(email=email):
+            return cls(
+                success=False,
+                errors=[
+                    dict(
+                        field="email",
+                        message="Email already exists."
+                    )
+                ]
+            )
+        if User.objects(username=username):
+            return cls(
+                success=False,
+                errors=[
+                    dict(
+                        field="username",
+                        message="Username already exists."
+                    )
+                ]
+            )
+        
+        user = User(
+            email=email, 
+            username=username, 
+            password=password
+        )
+        user.validate()
+        user.set_password(password)
+        user.save()
+        return cls(
+            success=True,
+            user=user
+        )
 
 
 class ResetPassword(BaseMutation):
@@ -87,7 +151,7 @@ class ResetPassword(BaseMutation):
 
     @classmethod
     def perform_mutate(cls, root, info, **data):
-        pass
+        return cls(success=True)
 
 
 class RequestPasswordReset(BaseMutation):
@@ -103,7 +167,7 @@ class RequestPasswordReset(BaseMutation):
     
     @classmethod
     def perform_mutate(cls, root, info, **data):
-        pass
+        return cls(success=True)
 
 
 class UpdateCurrentUser(BaseMutation):
@@ -125,7 +189,7 @@ class UpdateCurrentUser(BaseMutation):
 
     @classmethod
     def perform_mutate(cls, root, info, **data):
-        pass
+        return cls(success=True)
 
 
 class RequestEmailChange(BaseMutation):
@@ -141,7 +205,7 @@ class RequestEmailChange(BaseMutation):
     
     @classmethod
     def perform_mutate(cls, root, info, **data):
-        pass
+        return cls(success=True)
 
 
 class ChangeEmail(BaseMutation):
@@ -166,7 +230,7 @@ class ChangeEmail(BaseMutation):
 
     @classmethod
     def perform_mutate(cls, root, info, **data):
-        pass
+        return cls(success=True)
 
 
 class ChangePassword(BaseMutation):
@@ -186,7 +250,7 @@ class ChangePassword(BaseMutation):
     
     @classmethod
     def perform_mutate(cls, root, info, **data):
-        pass
+        return cls(success=True)
 
 
 class UserMutation(ObjectType):

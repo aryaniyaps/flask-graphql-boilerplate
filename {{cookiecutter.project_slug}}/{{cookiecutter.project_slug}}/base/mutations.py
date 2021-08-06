@@ -11,8 +11,7 @@ class BaseMutation(ClientIDMutation):
     validation, permission checking and more.
     """
     success = Boolean(
-        required=True, 
-        default_value=True
+        required=True
     )
     errors = List(
         required=True,
@@ -30,8 +29,8 @@ class BaseMutation(ClientIDMutation):
         """
         try:
             return cls.perform_mutate(root, info, **data)
-        except ValidationError as err:
-            return cls.handle_error(err)
+        except ValidationError as exc:
+            return cls.handle_errors(exc)
     
     @classmethod
     def perform_mutate(cls, root, info, **data):
@@ -41,17 +40,17 @@ class BaseMutation(ClientIDMutation):
         raise NotImplementedError
     
     @classmethod
-    def handle_error(cls, error):
+    def handle_errors(cls, exception):
         """
         Returns a formatted array of errors.
         """
-        formatted_errors = [
-            ErrorType(
-                field=error.field_name, 
-                messages=error.errors
-            )
-        ]
+        errors = []
+        for field, message in exception.errors.items():
+            errors.append(ErrorType(
+                field=field,
+                message=str(message)
+            ))
         return cls(
             success=False, 
-            errors=formatted_errors
+            errors=errors
         )

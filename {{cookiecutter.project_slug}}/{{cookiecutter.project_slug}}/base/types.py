@@ -1,18 +1,13 @@
-from graphene import ObjectType, String, List, NonNull
+from graphene import ObjectType, String
 
 
 class ErrorType(ObjectType):
     """
-    A set of error messages which map 
+    As error message which maps
     to a specific input field.
     """
     field = String(required=True)
-    messages = List(
-        required=True,
-        of_type=NonNull(
-            of_type=String
-        )
-    )
+    message = String(required=True)
 
     class Meta:
         name = "Error"
