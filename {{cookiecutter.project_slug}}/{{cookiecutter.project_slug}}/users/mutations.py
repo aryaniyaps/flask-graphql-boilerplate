@@ -27,14 +27,17 @@ class Login(BaseMutation):
         )
     
     access_token = String(
-        required=True
+        required=True,
+        description="The access token for the user."
     )
     refresh_token = String(
-        required=True
+        required=True,
+        description="The refresh token for the user."
     )
     user = Field(
         required=True, 
-        type=UserType
+        type=UserType,
+        description="The current user instance."
     )
 
     @classmethod
@@ -98,14 +101,17 @@ class CreateUser(BaseMutation):
         )
 
     access_token = String(
-        required=True
+        required=True,
+        description="The access token for the user."
     )
     refresh_token = String(
-        required=True
+        required=True,
+        description="The refresh token for the user."
     )
     user = Field(
         required=True, 
-        type=UserType
+        type=UserType,
+        description="The created user instance."
     )
 
     @classmethod
@@ -168,11 +174,10 @@ class ResetPassword(BaseMutation):
             required=True,
             description="The email of the user account."
         )
-    
-    # TODO: login user after resetting password.
 
     @classmethod
     def perform_mutate(cls, root, info, **data):
+        # TODO: login user after resetting password.
         return cls(success=True)
 
 
@@ -206,7 +211,8 @@ class UpdateCurrentUser(BaseMutation):
     
     user = Field(
         required=True, 
-        type=UserType
+        type=UserType,
+        description="The updated user instance."
     )
 
     @classmethod
@@ -247,7 +253,8 @@ class ChangeEmail(BaseMutation):
 
     user = Field(
         required=True, 
-        type=UserType
+        type=UserType,
+        description="The updated user instance."
     )
 
     @classmethod
