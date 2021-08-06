@@ -11,11 +11,13 @@ class BaseMutation(ClientIDMutation):
     validation, permission checking and more.
     """
     success = Boolean(
-        required=True
+        required=True,
+        description="Whether the operation was successful."
     )
     errors = List(
         required=True,
-        of_type=ErrorType
+        of_type=ErrorType,
+        description="Errors for the operation."
     )
 
     class Meta:
