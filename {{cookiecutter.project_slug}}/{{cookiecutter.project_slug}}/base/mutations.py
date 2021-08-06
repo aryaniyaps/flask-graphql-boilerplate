@@ -18,7 +18,7 @@ class BaseMutation(ClientIDMutation):
         required=True,
         default_value=[],
         of_type=ErrorType,
-        description="Errors for the operation."
+        description="Client side errors of the operation."
     )
 
     class Meta:
