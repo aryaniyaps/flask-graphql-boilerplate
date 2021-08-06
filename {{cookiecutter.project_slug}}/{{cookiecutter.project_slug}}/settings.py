@@ -17,9 +17,6 @@ MONGODB_SETTINGS = {
     "connect": env.bool("MONGODB_CONNECT", default=True)
 }
 
-# flask-bcrypt configuration.
-BCRYPT_LOG_ROUNDS = env.int("BCRYPT_LOG_ROUNDS", default=12)
-
 # flask-mail configuration.
 MAIL_PORT = env.int("MAIl_PORT", default=465)
 MAIL_USE_TLS = env.bool("MAIL_USE_TLS", default=True)
