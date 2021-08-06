@@ -25,6 +25,7 @@ mostly start off my projects with this template.
 - [ ] Comes with an authentication system which handles:
   - [ ] User email confirmation.
   - [ ] Forgot password/ password reset.
+  - [ ] Verified email/ password changes.
   - [ ] User creation/ login.
   - [ ] User identification with [Flask-JWT](https://github.com/vimalloc/flask-jwt-extended).
   - [x] Storing passwords with [Argon2](https://github.com/hynek/argon2-cffi).
