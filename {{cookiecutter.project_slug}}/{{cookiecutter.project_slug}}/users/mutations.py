@@ -16,6 +16,7 @@ class Login(BaseMutation):
     Logs the user associated with the provided
     credentials in, if they were correct.
     """
+
     class Input:
         email = String(
             required=True,
@@ -46,12 +47,12 @@ class Login(BaseMutation):
         if not user:
             return cls(
                 success=False,
-                errors=[
+                errors=(
                     dict(
                         field="email",
                         message="Incorrect email provided."
-                    )
-                ]
+                    ),
+                )
             )
 
         try:
@@ -59,12 +60,12 @@ class Login(BaseMutation):
         except VerificationError:
             return cls(
                 success=False,
-                errors=[
+                errors=(
                     dict(
                         field="password",
                         message="Incorrect password provided."
-                    )
-                ]
+                    ),
+                )
             )
 
         if password_hasher.check_needs_rehash(user.password):
@@ -86,6 +87,7 @@ class CreateUser(BaseMutation):
     """
     Creates an user instance.
     """
+
     class Input:
         email = String(
             required=True,
@@ -119,23 +121,23 @@ class CreateUser(BaseMutation):
         if User.objects(email=email):
             return cls(
                 success=False,
-                errors=[
+                errors=(
                     dict(
                         field="email",
                         message="Email already exists."
-                    )
-                ]
+                    ),
+                )
             )
         
         if User.objects(username=username):
             return cls(
                 success=False,
-                errors=[
+                errors=(
                     dict(
                         field="username",
                         message="Username already exists."
-                    )
-                ]
+                    ),
+                )
             )
         
         user = User(
@@ -161,6 +163,7 @@ class ResetPassword(BaseMutation):
     Resets the password for the user account
     associated with the given email address.
     """
+
     class Input:
         password = String(
             required=True,
@@ -186,6 +189,7 @@ class RequestPasswordReset(BaseMutation):
     Sends a password reset link to the
     provided email address.
     """
+
     class Input:
         email = String(
             required=True,
@@ -201,6 +205,7 @@ class UpdateCurrentUser(BaseMutation):
     """
     Updates the current user instance.
     """
+
     class Input:
         avatar = Upload(
             description="The user's new avatar file."
@@ -225,6 +230,7 @@ class RequestEmailChange(BaseMutation):
     Sends a email change link to the
     provided email address.
     """
+
     class Input:
         email = String(
             required=True,
@@ -241,6 +247,7 @@ class ChangeEmail(BaseMutation):
     Changes the email for the user account
     associated with the given email address.
     """
+
     class Input:
         email = String(
             required=True,
@@ -267,6 +274,7 @@ class ChangePassword(BaseMutation):
     Changes the current user's password, if
     the provided password was correct.
     """
+    
     class Input:
         new_password = String(
             required=True,
