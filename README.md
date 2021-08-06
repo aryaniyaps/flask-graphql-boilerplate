@@ -25,7 +25,8 @@ mostly start off my projects with this template.
   - [ ] Comes with an authentication system out of the box, which handles:
   - [ ] User email confirmation.
   - [ ] Forgot password/ password reset.
-  - [ ] User creation/ login. \*[x] Storing passwords with [Argon2](https://github.com/hynek/argon2-cffi).
+  - [ ] User creation/ login.
+  - [x] Storing passwords with [Argon2](https://github.com/hynek/argon2-cffi).
 
 ## Using the boilerplate
 
