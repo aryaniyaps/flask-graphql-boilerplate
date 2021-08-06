@@ -16,6 +16,7 @@ class BaseMutation(ClientIDMutation):
     )
     errors = List(
         required=True,
+        default_value=[],
         of_type=ErrorType,
         description="Errors for the operation."
     )

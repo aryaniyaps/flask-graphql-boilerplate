@@ -21,6 +21,7 @@ mostly start off my projects with this template.
 - [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
 - [x] Offers complete support for the [Relay](https://github.com/facebook/relay) API spec.
 - [x] GraphQL file uploads support.
+- [x] Follows the official [Shopify GraphQL Design](https://github.com/Shopify/graphql-design-tutorial) guide.
 - [x] Uses [Pytest](https://github.com/pytest-dev/pytest) and [Factory-Boy](https://github.com/FactoryBoy/factory_boy) for testing.
 - [ ] Comes with an authentication system which handles:
   - [ ] User email confirmation.

@@ -30,15 +30,12 @@ class Login(BaseMutation):
         )
     
     access_token = String(
-        required=True,
         description="The access token for the user."
     )
     refresh_token = String(
-        required=True,
         description="The refresh token for the user."
     )
     user = Field(
-        required=True, 
         type=UserType,
         description="The current user instance."
     )
@@ -85,7 +82,7 @@ class Login(BaseMutation):
         )
 
 
-class CreateUser(BaseMutation):
+class UserCreate(BaseMutation):
     """
     Creates an user instance.
     """
@@ -109,15 +106,12 @@ class CreateUser(BaseMutation):
         )
 
     access_token = String(
-        required=True,
         description="The access token for the user."
     )
     refresh_token = String(
-        required=True,
         description="The refresh token for the user."
     )
     user = Field(
-        required=True, 
         type=UserType,
         description="The created user instance."
     )
@@ -164,7 +158,7 @@ class CreateUser(BaseMutation):
         )
 
 
-class ResetPassword(BaseMutation):
+class PasswordReset(BaseMutation):
     """
     Resets the password for the user account
     associated with the given email address.
@@ -190,7 +184,7 @@ class ResetPassword(BaseMutation):
         return cls(success=True)
 
 
-class RequestPasswordReset(BaseMutation):
+class PasswordResetRequest(BaseMutation):
     """
     Sends a password reset link to the
     provided email, if it actually exists.
@@ -219,7 +213,7 @@ class RequestPasswordReset(BaseMutation):
         return cls(success=True)
 
 
-class UpdateCurrentUser(BaseMutation):
+class CurrentUserUpdate(BaseMutation):
     """
     Updates the current user instance.
     """
@@ -233,7 +227,6 @@ class UpdateCurrentUser(BaseMutation):
         )
     
     user = Field(
-        required=True, 
         type=UserType,
         description="The updated user instance."
     )
@@ -243,7 +236,7 @@ class UpdateCurrentUser(BaseMutation):
         return cls(success=True)
 
 
-class RequestEmailChange(BaseMutation):
+class EmailChangeRequest(BaseMutation):
     """
     Sends a email change link to the
     provided email address.
@@ -260,7 +253,7 @@ class RequestEmailChange(BaseMutation):
         return cls(success=True)
 
 
-class ChangeEmail(BaseMutation):
+class EmailChange(BaseMutation):
     """
     Changes the email for the user account
     associated with the given email address.
@@ -277,7 +270,6 @@ class ChangeEmail(BaseMutation):
         )
 
     user = Field(
-        required=True, 
         type=UserType,
         description="The updated user instance."
     )
@@ -287,7 +279,7 @@ class ChangeEmail(BaseMutation):
         return cls(success=True)
 
 
-class ChangePassword(BaseMutation):
+class PasswordChange(BaseMutation):
     """
     Changes the current user's password, if
     the provided password was correct.
@@ -310,10 +302,10 @@ class ChangePassword(BaseMutation):
 
 class UserMutation(ObjectType):
     login = Login.Field()
-    create_user = CreateUser.Field()
-    reset_password = ResetPassword.Field()
-    request_password_reset = RequestPasswordReset.Field()
-    update_current_user = UpdateCurrentUser.Field()
-    request_email_change = RequestEmailChange.Field()
-    change_email = ChangeEmail.Field()
-    change_password = ChangePassword.Field()
+    user_create = UserCreate.Field()
+    password_reset = PasswordReset.Field()
+    password_reset_request = PasswordResetRequest.Field()
+    current_user_update = CurrentUserUpdate.Field()
+    email_change_request = EmailChangeRequest.Field()
+    email_change = EmailChange.Field()
+    password_change = PasswordChange.Field()
