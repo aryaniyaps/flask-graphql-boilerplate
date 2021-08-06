@@ -4,7 +4,7 @@ from flask import Flask
 from flask_graphql import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema, commands
-from {{ cookiecutter.project_slug }}.extensions import mail, db
+from {{ cookiecutter.project_slug }}.extensions import mail, db, jwt
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
@@ -38,6 +38,7 @@ def configure_extensions(app):
     """
     db.init_app(app)
     mail.init_app(app)
+    jwt.init_app(app)
 
 
 def configure_commands(app):
