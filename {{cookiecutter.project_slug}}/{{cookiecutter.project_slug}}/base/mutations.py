@@ -1,3 +1,4 @@
+from cerberus import Validator
 from graphene import Boolean, List
 from graphene.relay import ClientIDMutation
 from mongoengine.errors import ValidationError
@@ -5,11 +6,17 @@ from mongoengine.errors import ValidationError
 from .types import ErrorType
 
 
+validator = Validator()
+
+
 class BaseMutation(ClientIDMutation):
     """
     An abstract mutation which executes input
     validation, permission checking and more.
     """
+
+    schema = None
+
     success = Boolean(
         required=True,
         description="Whether the operation was successful."
@@ -30,10 +37,10 @@ class BaseMutation(ClientIDMutation):
         Performs the mutation after checking permissions.
         Also handles validation errors.
         """
-        try:
-            return cls.perform_mutate(root, info, **data)
-        except ValidationError as exc:
-            return cls.handle_errors(exc)
+        if cls.schema is not None and not validator.validate(data, cls.schema):
+            return cls.handle_errors(validator.errors)
+
+        return cls.perform_mutate(root, info, **data)
     
     @classmethod
     def perform_mutate(cls, root, info, **data):
@@ -43,15 +50,14 @@ class BaseMutation(ClientIDMutation):
         raise NotImplementedError
     
     @classmethod
-    def handle_errors(cls, exception):
+    def handle_errors(cls, errors):
         """
         Returns a formatted array of errors.
         """
-        errors = []
-        for field, message in exception.errors.items():
+        for field, messages in errors.items():
             errors.append(ErrorType(
                 field=field,
-                message=str(message)
+                messages=messages
             ))
         return cls(
             success=False, 

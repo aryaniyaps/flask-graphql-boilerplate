@@ -19,6 +19,17 @@ class Login(BaseMutation):
     credentials in, if they were correct.
     """
 
+    schema = {
+        "email": {
+            "type": "string",
+            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        },
+        "password": {
+            "minlength": 8,
+            "regex": "^[A-Za-z0-9@#$%^&+=]"
+        }
+    }
+
     class Input:
         email = String(
             required=True,
@@ -86,6 +97,21 @@ class UserCreate(BaseMutation):
     """
     Creates an user instance.
     """
+
+    schema = {
+        "email": {
+            "type": "string",
+            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        },
+        "username": {
+            "minlength": 2,
+            "maxlength": 32
+        },
+        "password": {
+            "minlength": 8,
+            "regex": "^[A-Za-z0-9@#$%^&+=]"
+        }
+    }
 
     class Input:
         email = String(
@@ -164,6 +190,17 @@ class PasswordReset(BaseMutation):
     associated with the given email address.
     """
 
+    schema = {
+        "email": {
+            "type": "string",
+            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        },
+        "password": {
+            "minlength": 8,
+            "regex": "^[A-Za-z0-9@#$%^&+=]"
+        }
+    }
+
     class Input:
         password = String(
             required=True,
@@ -189,6 +226,13 @@ class PasswordResetRequest(BaseMutation):
     Sends a password reset link to the
     provided email, if it actually exists.
     """
+
+    schema = {
+        "email": {
+            "type": "string",
+            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        }
+    }
 
     class Input:
         email = String(
@@ -218,6 +262,13 @@ class CurrentUserUpdate(BaseMutation):
     Updates the current user instance.
     """
 
+    schema = {
+        "username": {
+            "minlength": 2,
+            "maxlength": 32
+        }
+    }
+
     class Input:
         avatar = Upload(
             description="The user's new avatar file."
@@ -242,6 +293,13 @@ class EmailChangeRequest(BaseMutation):
     provided email address.
     """
 
+    schema = {
+        "email": {
+            "type": "string",
+            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        }
+    }
+
     class Input:
         email = String(
             required=True,
@@ -258,6 +316,13 @@ class EmailChange(BaseMutation):
     Changes the email for the user account
     associated with the given email address.
     """
+
+    schema = {
+        "email": {
+            "type": "string",
+            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        }
+    }
 
     class Input:
         email = String(
@@ -284,6 +349,13 @@ class PasswordChange(BaseMutation):
     Changes the current user's password, if
     the provided password was correct.
     """
+
+    schema = {
+        "new_password": {
+            "minlength": 8,
+            "regex": "^[A-Za-z0-9@#$%^&+=]"
+        }
+    }
     
     class Input:
         new_password = String(
