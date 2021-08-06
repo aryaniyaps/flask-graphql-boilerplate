@@ -45,6 +45,7 @@ class Login(BaseMutation):
                     )
                 ]
             )
+        
         if not user.check_password(password):
             return cls(
                 success=False,
@@ -103,6 +104,7 @@ class CreateUser(BaseMutation):
                     )
                 ]
             )
+        
         if User.objects(username=username):
             return cls(
                 success=False,
