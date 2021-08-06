@@ -103,6 +103,10 @@ class CreateUser(BaseMutation):
             required=True,
             description="The password of the user."
         )
+        code = String(
+            required=True,
+            description="The email confirmation code."
+        )
 
     access_token = String(
         required=True,
