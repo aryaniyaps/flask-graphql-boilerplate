@@ -26,7 +26,7 @@ mostly start off my projects with this template.
   - [ ] User email confirmation.
   - [ ] Forgot password/ password reset.
   - [ ] User creation/ login.
-  - [ ] User identification with [Flask-JWT](https://github.com/vimalloc/flask-jwt-extended)
+  - [ ] User identification using JWTs.
   - [x] Storing passwords with [Argon2](https://github.com/hynek/argon2-cffi).
 
 ## Using the boilerplate
