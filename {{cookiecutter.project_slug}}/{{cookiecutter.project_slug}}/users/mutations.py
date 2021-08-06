@@ -97,12 +97,16 @@ class CreateUser(BaseMutation):
             description="The password of the user."
         )
 
+    access_token = String(
+        required=True
+    )
+    refresh_token = String(
+        required=True
+    )
     user = Field(
         required=True, 
         type=UserType
     )
-    # TODO: return access and refresh tokens
-    # after creating an user.
 
     @classmethod
     def perform_mutate(cls, root, info, email, username, password):
@@ -137,6 +141,9 @@ class CreateUser(BaseMutation):
         # hash the user's password.
         user.password = password_hasher.hash(password)
         user.save()
+
+        # TODO: return access and refresh tokens
+        # after creating an user.
         return cls(
             success=True,
             user=user
