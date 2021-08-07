@@ -7,8 +7,8 @@ from {{ cookiecutter.project_slug }}.users.types import UserType
 
 class Authenticate(BaseMutation):
     """
-    Authenticates the user associated with the 
-    provided credentials in, if they were correct.
+    Logs the user associated with the provided 
+    credentials in, if they were correct.
     """
 
     class Input:
