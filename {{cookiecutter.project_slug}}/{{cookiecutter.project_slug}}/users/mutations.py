@@ -1,5 +1,3 @@
-from argon2 import PasswordHasher
-from argon2.exceptions import VerificationError
 from flask import render_template
 from graphene import String, Field, ObjectType
 from graphene_file_upload.scalars import Upload
@@ -8,9 +6,6 @@ from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
 from {{ cookiecutter.project_slug }}.emails import send_mail
 from .models import User
 from .types import UserType
-
-
-password_hasher = PasswordHasher()
 
 
 class Login(BaseMutation):
@@ -54,9 +49,7 @@ class Login(BaseMutation):
                 )
             )
 
-        try:
-            password_hasher.verify(user.password, password)
-        except VerificationError:
+        if not user.check_password(password):
             return cls(
                 success=False,
                 errors=(
@@ -67,9 +60,9 @@ class Login(BaseMutation):
                 )
             )
 
-        if password_hasher.check_needs_rehash(user.password):
+        if user.has_stale_password():
             # recalculate the user's password hash.
-            user.password = password_hasher.hash(password)
+            user.set_password(password)
             user.save()
         
         # TODO: return access and refresh tokens
@@ -147,7 +140,7 @@ class UserCreate(BaseMutation):
         )
         user.validate()
         # hash the user's password.
-        user.password = password_hasher.hash(password)
+        user.set_password(password)
         user.save()
 
         # TODO: return access and refresh tokens

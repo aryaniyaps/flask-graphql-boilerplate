@@ -1,5 +1,11 @@
+from argon2 import PasswordHasher
+from argon2.exceptions import VerificationError
+
 from {{ cookiecutter.project_slug }}.base.models import BaseDocument
 from {{ cookiecutter.project_slug }}.extensions import db
+
+
+password_hasher = PasswordHasher()
 
 
 class User(BaseDocument):
@@ -29,3 +35,30 @@ class User(BaseDocument):
         default=True,
         required=True
     )
+
+    def set_password(self, password: str):
+        """
+        sets a hashed version of the provided
+        password on the user instance.
+        """
+        self.password = password_hasher.hash(password)
+
+    def check_password(self, password: str):
+        """
+        returns whether the provided password
+        matches the user's password hash.
+        """
+        try:
+            return password_hasher.verify(
+                hash=self.password, 
+                password=password
+            )
+        except VerificationError:
+            return False
+
+    def has_stale_password(self):
+        """
+        returns whether the current user's password
+        hash is stale and needs to be recalculated.
+        """
+        return password_hasher.check_needs_rehash(self.password)
