@@ -5,10 +5,10 @@ from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.types import UserType
 
 
-class Login(BaseMutation):
+class Authenticate(BaseMutation):
     """
-    Logs the user associated with the provided
-    credentials in, if they were correct.
+    Authenticates the user associated with the 
+    provided credentials in, if they were correct.
     """
 
     class Input:
