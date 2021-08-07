@@ -11,5 +11,5 @@ class UserQuery(ObjectType):
     viewer = Field(
         type=UserType,
         resolver=resolve_viewer,
-        description="Look up the current user."
+        description="The currently authenticated user."
     )
