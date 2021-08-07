@@ -9,14 +9,6 @@ We actively welcome your pull requests and invite you to submit pull requests di
 The boilerplate must not be very opinionated. It should provide a basic set of features
 which must be easily extensible.
 
-When it comes to mutations, we always prefer to use `ClientIDMutation` subclasses instead of `Mutation` subclasses because
-this gives the server and client more control over features like caching and preventing duplication.
-
-## Testing the boilerplate
-
-We are planning to use pytest in order to test the boilerplate. Tests haven't been setup yet,
-but this section will contain information on how to run them after they are completed.
-
 ## Pull Requests
 
 1. Fork the repo and create your branch (usually named `patch-%the number of PRs you've already made%`).
