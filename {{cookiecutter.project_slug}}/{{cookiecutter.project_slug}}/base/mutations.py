@@ -1,7 +1,6 @@
 from cerberus import Validator
 from graphene import Boolean, List
 from graphene.relay import ClientIDMutation
-from mongoengine.errors import ValidationError
 
 from .types import ErrorType
 
@@ -54,12 +53,13 @@ class BaseMutation(ClientIDMutation):
         """
         Returns a formatted array of errors.
         """
+        formatted_errors = []
         for field, messages in errors.items():
-            errors.append(ErrorType(
+            formatted_errors.append(ErrorType(
                 field=field,
                 messages=messages
             ))
         return cls(
             success=False, 
-            errors=errors
+            errors=formatted_errors
         )
