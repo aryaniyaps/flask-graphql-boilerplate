@@ -29,7 +29,3 @@ class User(BaseDocument):
         default=True,
         required=True
     )
-    is_staff = db.BooleanField(
-        default=False,
-        required=True
-    )

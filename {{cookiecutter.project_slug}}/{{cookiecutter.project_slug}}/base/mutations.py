@@ -9,13 +9,6 @@ validator = Validator()
 
 
 class BaseMutation(ClientIDMutation):
-    """
-    An abstract mutation which executes input
-    validation, permission checking and more.
-    """
-
-    schema = None
-
     success = Boolean(
         required=True,
         description="Whether the operation was successful."
@@ -29,37 +22,3 @@ class BaseMutation(ClientIDMutation):
 
     class Meta:
         abstract = True
-    
-    @classmethod
-    def mutate_and_get_payload(cls, root, info, **data):
-        """
-        Performs the mutation after checking permissions.
-        Also handles validation errors.
-        """
-        if cls.schema is not None and not validator.validate(data, cls.schema):
-            return cls.handle_errors(validator.errors)
-
-        return cls.perform_mutate(root, info, **data)
-    
-    @classmethod
-    def perform_mutate(cls, root, info, **data):
-        """
-        Executes the mutation and returns the payload.
-        """
-        raise NotImplementedError
-    
-    @classmethod
-    def handle_errors(cls, errors):
-        """
-        Returns a formatted array of errors.
-        """
-        formatted_errors = []
-        for field, messages in errors.items():
-            formatted_errors.append(ErrorType(
-                field=field,
-                messages=messages
-            ))
-        return cls(
-            success=False, 
-            errors=formatted_errors
-        )

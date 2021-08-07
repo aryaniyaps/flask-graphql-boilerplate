@@ -19,17 +19,6 @@ class Login(BaseMutation):
     credentials in, if they were correct.
     """
 
-    schema = {
-        "email": {
-            "type": "string",
-            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-        },
-        "password": {
-            "minlength": 8,
-            "regex": "^[A-Za-z0-9@#$%^&+=]"
-        }
-    }
-
     class Input:
         email = String(
             required=True,
@@ -52,7 +41,7 @@ class Login(BaseMutation):
     )
 
     @classmethod
-    def perform_mutate(cls, root, info, email, password):
+    def mutate_and_get_payload(cls, root, info, email, password):
         user = User.objects(email=email).first()
         if not user:
             return cls(
@@ -98,21 +87,6 @@ class UserCreate(BaseMutation):
     Creates an user instance.
     """
 
-    schema = {
-        "email": {
-            "type": "string",
-            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-        },
-        "username": {
-            "minlength": 2,
-            "maxlength": 32
-        },
-        "password": {
-            "minlength": 8,
-            "regex": "^[A-Za-z0-9@#$%^&+=]"
-        }
-    }
-
     class Input:
         email = String(
             required=True,
@@ -143,7 +117,7 @@ class UserCreate(BaseMutation):
     )
 
     @classmethod
-    def perform_mutate(cls, root, info, email, username, password):
+    def mutate_and_get_payload(cls, root, info, email, username, password):
         if User.objects(email=email):
             return cls(
                 success=False,
@@ -190,17 +164,6 @@ class PasswordReset(BaseMutation):
     associated with the given email address.
     """
 
-    schema = {
-        "email": {
-            "type": "string",
-            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-        },
-        "password": {
-            "minlength": 8,
-            "regex": "^[A-Za-z0-9@#$%^&+=]"
-        }
-    }
-
     class Input:
         password = String(
             required=True,
@@ -216,7 +179,7 @@ class PasswordReset(BaseMutation):
         )
 
     @classmethod
-    def perform_mutate(cls, root, info, **data):
+    def mutate_and_get_payload(cls, root, info, **data):
         # TODO: login user after resetting password.
         return cls(success=True)
 
@@ -241,7 +204,7 @@ class PasswordResetRequest(BaseMutation):
         )
     
     @classmethod
-    def perform_mutate(cls, root, info, email):
+    def mutate_and_get_payload(cls, root, info, email):
         user = User.objects(email=email).first()
         if user is not None:
             # TODO: generate a reset token.
@@ -262,13 +225,6 @@ class CurrentUserUpdate(BaseMutation):
     Updates the current user instance.
     """
 
-    schema = {
-        "username": {
-            "minlength": 2,
-            "maxlength": 32
-        }
-    }
-
     class Input:
         avatar = Upload(
             description="The user's new avatar file."
@@ -283,7 +239,7 @@ class CurrentUserUpdate(BaseMutation):
     )
 
     @classmethod
-    def perform_mutate(cls, root, info, **data):
+    def mutate_and_get_payload(cls, root, info, **data):
         return cls(success=True)
 
 
@@ -293,13 +249,6 @@ class EmailChangeRequest(BaseMutation):
     provided email address.
     """
 
-    schema = {
-        "email": {
-            "type": "string",
-            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-        }
-    }
-
     class Input:
         email = String(
             required=True,
@@ -307,7 +256,7 @@ class EmailChangeRequest(BaseMutation):
         )
     
     @classmethod
-    def perform_mutate(cls, root, info, **data):
+    def mutate_and_get_payload(cls, root, info, **data):
         return cls(success=True)
 
 
@@ -316,13 +265,6 @@ class EmailChange(BaseMutation):
     Changes the email for the user account
     associated with the given email address.
     """
-
-    schema = {
-        "email": {
-            "type": "string",
-            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-        }
-    }
 
     class Input:
         email = String(
@@ -340,7 +282,7 @@ class EmailChange(BaseMutation):
     )
 
     @classmethod
-    def perform_mutate(cls, root, info, **data):
+    def mutate_and_get_payload(cls, root, info, **data):
         return cls(success=True)
 
 
@@ -349,13 +291,6 @@ class PasswordChange(BaseMutation):
     Changes the current user's password, if
     the provided password was correct.
     """
-
-    schema = {
-        "new_password": {
-            "minlength": 8,
-            "regex": "^[A-Za-z0-9@#$%^&+=]"
-        }
-    }
     
     class Input:
         new_password = String(
@@ -368,7 +303,7 @@ class PasswordChange(BaseMutation):
         )
     
     @classmethod
-    def perform_mutate(cls, root, info, **data):
+    def mutate_and_get_payload(cls, root, info, **data):
         return cls(success=True)
 
 
