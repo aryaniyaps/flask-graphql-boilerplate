@@ -5,7 +5,7 @@ from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
 from {{ cookiecutter.project_slug }}.users.types import UserType
 
 
-class CurrentUserUpdate(BaseMutation):
+class UserUpdate(BaseMutation):
     """
     Updates the current user instance.
     """

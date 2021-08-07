@@ -14,6 +14,10 @@ class EmailChangeRequest(BaseMutation):
             required=True,
             description="The email to send the email change link to."
         )
+        password = String(
+            required=True,
+            description="The user account's password."
+        )
     
     @classmethod
     def mutate_and_get_payload(cls, root, info, **data):

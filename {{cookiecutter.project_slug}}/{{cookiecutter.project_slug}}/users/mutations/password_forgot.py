@@ -6,7 +6,7 @@ from {{ cookiecutter.project_slug }}.emails import send_mail
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
-class PasswordResetRequest(BaseMutation):
+class PasswordForgot(BaseMutation):
     """
     Sends a password reset link to the
     provided email, if it actually exists.

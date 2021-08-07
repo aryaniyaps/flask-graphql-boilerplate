@@ -1,21 +1,21 @@
 from graphene import ObjectType
 
 from .login import Login
-from .create_user import UserCreate
-from .reset_password import PasswordReset
-from .request_password_reset import PasswordResetRequest
-from .update_current_user import CurrentUserUpdate
-from .change_email_request import EmailChangeRequest
-from .change_email import EmailChange
-from .change_password import PasswordChange
+from .user_create import UserCreate
+from .password_reset import PasswordReset
+from .password_forgot import PasswordForgot
+from .user_update import UserUpdate
+from .email_change_request import EmailChangeRequest
+from .email_change import EmailChange
+from .password_change import PasswordChange
 
 
 class UserMutation(ObjectType):
     login = Login.Field()
     user_create = UserCreate.Field()
+    user_update = UserUpdate.Field()
     password_reset = PasswordReset.Field()
-    password_reset_request = PasswordResetRequest.Field()
-    current_user_update = CurrentUserUpdate.Field()
+    password_forgot = PasswordForgot.Field()
     email_change_request = EmailChangeRequest.Field()
     email_change = EmailChange.Field()
     password_change = PasswordChange.Field()
