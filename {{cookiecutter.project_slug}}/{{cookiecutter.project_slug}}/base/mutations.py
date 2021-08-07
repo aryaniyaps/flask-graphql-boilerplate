@@ -1,5 +1,5 @@
 from cerberus import Validator
-from graphene import Boolean, List
+from graphene import Boolean, List, NonNull
 from graphene.relay import ClientIDMutation
 
 from .types import ErrorType
@@ -16,7 +16,9 @@ class BaseMutation(ClientIDMutation):
     errors = List(
         required=True,
         default_value=[],
-        of_type=ErrorType,
+        of_type=NonNull(
+            of_type=ErrorType
+        ),
         description="Client side errors of the operation."
     )
 
