@@ -11,7 +11,6 @@ from .password_change import PasswordChange
 
 
 class UserMutation(ObjectType):
-    # what about user_authenticate
     authenticate = Authenticate.Field()
     user_create = UserCreate.Field()
     user_update = UserUpdate.Field()
