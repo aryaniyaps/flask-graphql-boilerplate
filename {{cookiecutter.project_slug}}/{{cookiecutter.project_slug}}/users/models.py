@@ -1,5 +1,6 @@
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError
+from flask_login import UserMixin
 
 from {{ cookiecutter.project_slug }}.base.models import BaseDocument
 from {{ cookiecutter.project_slug }}.extensions import db
@@ -8,7 +9,7 @@ from {{ cookiecutter.project_slug }}.extensions import db
 password_hasher = PasswordHasher()
 
 
-class User(BaseDocument):
+class User(BaseDocument, UserMixin):
     meta = {
         "collection": "users"
     }
@@ -43,7 +44,7 @@ class User(BaseDocument):
         """
         self.password = password_hasher.hash(password)
 
-    def check_password(self, password: str):
+    def check_password(self, password: str) -> bool:
         """
         returns whether the provided password
         matches the user's password hash.
@@ -56,7 +57,7 @@ class User(BaseDocument):
         except VerificationError:
             return False
 
-    def has_stale_password(self):
+    def has_stale_password(self) -> bool:
         """
         returns whether the current user's password
         hash is stale and needs to be recalculated.

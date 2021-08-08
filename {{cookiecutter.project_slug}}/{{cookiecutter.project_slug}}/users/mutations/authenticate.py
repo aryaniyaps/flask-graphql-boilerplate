@@ -1,4 +1,5 @@
-from graphene import String, Field
+from flask_login import login_user
+from graphene import String, Boolean, Field
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
 from {{ cookiecutter.project_slug }}.users.models import User
@@ -20,6 +21,10 @@ class Authenticate(BaseMutation):
             required=True,
             description="The password of the user."
         )
+        remember = Boolean(
+            default_value=True,
+            description="Remembers the user after session expires."
+        )
     
     user = Field(
         type=UserType,
@@ -27,7 +32,7 @@ class Authenticate(BaseMutation):
     )
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, email, password):
+    def mutate_and_get_payload(cls, root, info, email, password, remember):
         user = User.objects(email=email).first()
         if not user:
             return cls(
@@ -56,6 +61,11 @@ class Authenticate(BaseMutation):
             user.set_password(password)
             user.save()
         
+        login_user(
+            user=user, 
+            remember=remember
+        )        
+
         return cls(
             success=True,
             user=user

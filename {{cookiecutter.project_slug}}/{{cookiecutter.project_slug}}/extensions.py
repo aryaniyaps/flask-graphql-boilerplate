@@ -5,5 +5,5 @@ from flask_cors import CORS
 
 mail = Mail()
 db = MongoEngine()
-cors = CORS()
 login_manager = LoginManager()
+cors = CORS()

@@ -4,8 +4,8 @@ from flask import Flask
 from flask_graphql import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema, commands
-from {{ cookiecutter.project_slug }}.extensions import mail, db
-from {{ cookiecutter.project_slug }}.extensions import login_manager, cors
+from {{ cookiecutter.project_slug }}.extensions import mail, db, cors
+from {{ cookiecutter.project_slug }}.extensions import login_manager
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
