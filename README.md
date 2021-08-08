@@ -44,13 +44,7 @@ You can get started by entering the following command.
 You'll be asked to enter the project variables.
 
 ```cmd
-cookiecutter gh:codebyaryan/flask-graphql-boilerplate
-```
-
-If you don't want to provide any project variables, you can use this command instead.
-
-```cmd
-cookiecutter gh:codebyaryan/flask-graphql-boilerplate --noinput
+cookiecutter https://github.com/codebyaryan/flask-graphql-boilerplate
 ```
 
 ## Contributing 📄
