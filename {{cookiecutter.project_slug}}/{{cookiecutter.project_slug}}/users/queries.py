@@ -3,6 +3,11 @@ from graphene import ObjectType, Field
 from .types import UserType
 
 
+__all__ = (
+    "UserQuery",
+)
+
+
 def resolve_viewer(root, info):
     pass
 
