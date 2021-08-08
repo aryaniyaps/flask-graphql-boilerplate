@@ -11,6 +11,11 @@ from .email_change import EmailChange
 from .password_change import PasswordChange
 
 
+__all__ = (
+    "UserMutation",
+)
+
+
 class UserMutation(ObjectType):
     authenticate = Authenticate.Field()
     unauthenticate = Unauthenticate.Field()

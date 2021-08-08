@@ -1,6 +1,8 @@
+from flask_login import login_user
 from graphene import String
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from {{ cookiecutter.project_slug }}.users.models import User
 
 
 class PasswordReset(BaseMutation):
@@ -25,5 +27,6 @@ class PasswordReset(BaseMutation):
 
     @classmethod
     def mutate_and_get_payload(cls, root, info, **data):
-        # TODO: login user after resetting password.
+        user = User()
+        login_user(user=user)
         return cls(success=True)
