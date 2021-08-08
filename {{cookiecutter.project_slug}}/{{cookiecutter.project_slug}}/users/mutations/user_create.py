@@ -24,12 +24,6 @@ class UserCreate(BaseMutation):
             description="The password of the user."
         )
 
-    access_token = String(
-        description="The access token for the user."
-    )
-    refresh_token = String(
-        description="The refresh token for the user."
-    )
     user = Field(
         type=UserType,
         description="The created user instance."
@@ -69,8 +63,6 @@ class UserCreate(BaseMutation):
         user.set_password(password)
         user.save()
 
-        # TODO: return access and refresh tokens
-        # after creating an user.
         return cls(
             success=True,
             user=user

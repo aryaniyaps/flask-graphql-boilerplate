@@ -21,12 +21,6 @@ class Authenticate(BaseMutation):
             description="The password of the user."
         )
     
-    access_token = String(
-        description="The access token for the user."
-    )
-    refresh_token = String(
-        description="The refresh token for the user."
-    )
     user = Field(
         type=UserType,
         description="The current user instance."
@@ -62,8 +56,6 @@ class Authenticate(BaseMutation):
             user.set_password(password)
             user.save()
         
-        # TODO: return access and refresh tokens
-        # after logging an user in.
         return cls(
             success=True,
             user=user

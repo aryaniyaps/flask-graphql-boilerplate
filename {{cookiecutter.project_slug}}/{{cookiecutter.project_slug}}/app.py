@@ -5,7 +5,7 @@ from flask_graphql import GraphQLView
 
 from {{ cookiecutter.project_slug }} import schema, commands
 from {{ cookiecutter.project_slug }}.extensions import mail, db
-from {{ cookiecutter.project_slug }}.extensions import jwt, cors
+from {{ cookiecutter.project_slug }}.extensions import login_manager, cors
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
@@ -40,7 +40,15 @@ def configure_extensions(app):
     db.init_app(app)
     mail.init_app(app)
     cors.init_app(app)
-    jwt.init_app(app)
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        """
+        Looks up an user with the given
+        user ID from the database.
+        """
+        return User.objects(id=user_id).first()
 
 
 def configure_commands(app):
