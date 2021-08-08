@@ -1,6 +1,7 @@
 from graphene import ObjectType
 
 from .authenticate import Authenticate
+from .unauthenticate import Unauthenticate
 from .user_create import UserCreate
 from .password_reset import PasswordReset
 from .password_forgot import PasswordForgot
@@ -12,6 +13,7 @@ from .password_change import PasswordChange
 
 class UserMutation(ObjectType):
     authenticate = Authenticate.Field()
+    unauthenticate = Unauthenticate.Field()
     user_create = UserCreate.Field()
     user_update = UserUpdate.Field()
     password_reset = PasswordReset.Field()
