@@ -38,7 +38,7 @@ class Authenticate(BaseMutation):
         if not user:
             return cls(
                 success=False,
-                errors=(
+                user_errors=(
                     dict(
                         field="email",
                         message="Incorrect email provided."
@@ -49,7 +49,7 @@ class Authenticate(BaseMutation):
         if not user.check_password(password):
             return cls(
                 success=False,
-                errors=(
+                user_errors=(
                     dict(
                         field="password",
                         message="Incorrect password provided."

@@ -40,7 +40,7 @@ class UserCreate(BaseMutation):
         if User.objects(email=email):
             return cls(
                 success=False,
-                errors=(
+                user_errors=(
                     dict(
                         field="email",
                         message="Email already exists."
@@ -51,7 +51,7 @@ class UserCreate(BaseMutation):
         if User.objects(username=username):
             return cls(
                 success=False,
-                errors=(
+                user_errors=(
                     dict(
                         field="username",
                         message="Username already exists."
