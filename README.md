@@ -34,14 +34,14 @@ mostly start off my projects with this template.
 
 ## Using the boilerplate 🚀
 
-using the boilerplate is very simple! Make sure that you have cookiecutter installed.
+using the boilerplate is very simple! Make sure that you have pip installed.
+If you don't have cookiecutter already, use the following command.
 
 ```cmd
 pip install cookiecutter
 ```
 
 You can get started by entering the following command.
-You'll be asked to enter the project variables.
 
 ```cmd
 cookiecutter https://github.com/codebyaryan/flask-graphql-boilerplate
