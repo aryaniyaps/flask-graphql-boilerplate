@@ -19,6 +19,7 @@ mostly start off my projects with this template.
 - [x] Built in support for sending emails.
 - [x] [MongoEngine](https://github.com/MongoEngine/mongoengine) ODM support.
 - [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
+- [x] Comes with support for [Flask-CORS](https://github.com/corydolphin/flask-cors).
 - [x] Offers complete support for the [Relay](https://github.com/facebook/relay) API spec.
 - [x] GraphQL file uploads support.
 - [x] Follows the official [Shopify GraphQL Design](https://github.com/Shopify/graphql-design-tutorial) guide.

@@ -66,7 +66,5 @@ class Authenticate(BaseMutation):
         # after logging an user in.
         return cls(
             success=True,
-            user=user,
-            access_token="",
-            refresh_token=""
+            user=user
         )

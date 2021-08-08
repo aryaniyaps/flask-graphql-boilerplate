@@ -11,6 +11,11 @@ PUBLIC_SITE_NAME = env.str("PUBLIC_SITE_NAME", default="{{ cookiecutter.project_
 ENV = env.str("FLASK_ENV", default="development")
 SECRET_KEY = env.str("SECRET_KEY")
 
+# flask-cors configuration.
+CORS_ORIGINS = env.str("CORS_ORIGINS")
+CORS_ALLOW_HEADERS = env.str("CORS_ALLOW_HEADERS")
+CORS_SUPPORTS_CREDENTIALS = env.bool("CORS_SUPPORTS_CREDENTIALS")
+
 # flask-mongoengine configuration.
 MONGODB_SETTINGS = {
     "host": env.str("DATABASE_URL"),
