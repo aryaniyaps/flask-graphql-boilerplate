@@ -3,14 +3,14 @@
   a Flask template for <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> to get you up and running, powered by GraphQL.
 </p>
 
-## Motivation
+## Motivation ⛵
 
 The GraphQL community is relatively new, and there are fewer resources to help you get started with it in the Python ecosystem. While I started to write
 GraphQL projects with Python, I experienced a lot of friction, and wrote a lot of boilerplate code. Eventually, I figured out that it would be easier to
 make a template which would help me to get up and running. This template uses a lot of modern libraries to provide the best developer experience. Today, I
 mostly start off my projects with this template.
 
-## Features at a glance
+## Features at a glance ✨
 
 - [x] Built for [Flask](https://github.com/pallets/flask) 2.0.1
 - [x] Works with Python 3.8
@@ -32,7 +32,7 @@ mostly start off my projects with this template.
   - [x] User authentication with [Flask-Login](https://github.com/maxcountryman/flask-login).
   - [x] Storing passwords with [Argon2](https://github.com/hynek/argon2-cffi).
 
-## Using the boilerplate
+## Using the boilerplate 🚀
 
 using the boilerplate is very simple! Make sure that you have cookiecutter installed.
 
@@ -53,6 +53,6 @@ If you don't want to provide any project variables, you can use this command ins
 cookiecutter gh:codebyaryan/flask-graphql-boilerplate --noinput
 ```
 
-## Contributing
+## Contributing 📄
 
 This project is open for contributions! Make sure to read the [contributing guidelines](.github/CONTRIBUTING.md) to get started.
