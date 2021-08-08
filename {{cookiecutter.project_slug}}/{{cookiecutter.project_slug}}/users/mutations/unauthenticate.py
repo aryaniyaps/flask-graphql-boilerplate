@@ -1,5 +1,3 @@
-from graphene import String, Field
-
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
 
 
