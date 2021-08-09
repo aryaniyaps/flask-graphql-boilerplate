@@ -1,15 +1,31 @@
 from flask_login import login_user
 from graphene import String, Boolean, Field
-from marshmallow import Schema, fields, validate
+from marshmallow import fields, validate
+from marshmallow import Schema, ValidationError
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
 from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.types import UserType
 
 
+def validate_email_exists(email):
+    if User.objects(email=email):
+        raise ValidationError(
+            message="Email already exists."
+        )
+
+
+def validate_username_exists(username):
+    if User.objects(username=username):
+        raise ValidationError(
+            message="Username already exists."
+        )
+
+
 class UserCreateSchema(Schema):
     email = fields.Email(
-        required=True
+        required=True,
+        validate=validate_email_exists
     )
     password = fields.String(
         required=True, 
@@ -22,9 +38,12 @@ class UserCreateSchema(Schema):
     )
     username = fields.String(
         required=True, 
-        validate=validate.Length(
-            min=2, 
-            max=32
+        validate=(
+            validate.Length(
+                min=2, 
+                max=32
+            ),
+            validate_username_exists
         )
     )
     remember = fields.Boolean(
@@ -65,29 +84,7 @@ class UserCreate(BaseMutation):
         errors = UserCreateSchema().validate(data)
         if errors:
             # handle errors here
-            print(errors) 
-            
-        if User.objects(email=data.get("email")):
-            return cls(
-                success=False,
-                user_errors=(
-                    dict(
-                        field="email",
-                        message="Email already exists."
-                    ),
-                )
-            )
-        
-        if User.objects(username=data.get("username")):
-            return cls(
-                success=False,
-                user_errors=(
-                    dict(
-                        field="username",
-                        message="Username already exists."
-                    ),
-                )
-            )
+            print(errors)
         
         user = User(
             email=data.get("email"), 
