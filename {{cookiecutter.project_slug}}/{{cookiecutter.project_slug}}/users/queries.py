@@ -1,6 +1,7 @@
 from flask_login import current_user
-from graphene import ObjectType, Field
+from graphene import ObjectType, Field, String
 
+from .models import User
 from .types import UserType
 
 
@@ -15,9 +16,22 @@ def resolve_viewer(root, info):
     return current_user
 
 
+def resolve_user(root, info, username):
+    return User.objects(username=username).first()
+
+
 class UserQuery(ObjectType):
     viewer = Field(
         type=UserType,
         resolver=resolve_viewer,
         description="The currently authenticated user."
+    )
+    user = Field(
+        type=UserType,
+        resolver=resolve_user,
+        description="Look up an user by username.",
+        username=String(
+            required=True,
+            description="The username of the user."
+        )
     )
