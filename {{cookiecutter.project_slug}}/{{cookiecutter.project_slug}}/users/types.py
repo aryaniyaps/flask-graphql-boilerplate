@@ -21,8 +21,5 @@ class UserType(MongoengineObjectType):
 
     @classmethod
     def get_node(cls, info, id):
-        """
-        Loads an user within a batch.
-        """
         loaders = info.context.get("loaders")
         return loaders.get("user_by_id").load(key=id)
