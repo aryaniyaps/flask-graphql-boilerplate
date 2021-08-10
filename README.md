@@ -24,7 +24,7 @@ mostly start off my projects with this template.
 - [x] GraphQL file uploads support.
 - [x] Follows the official [Shopify GraphQL Design](https://github.com/Shopify/graphql-design-tutorial) guide.
 - [x] Uses [Pytest](https://github.com/pytest-dev/pytest) and [FactoryBoy](https://github.com/FactoryBoy/factory_boy) for testing.
-- [ ] Uses [Marshmallow](https://github.com/marshmallow-code/marshmallow) for input validation.
+- [ ] Uses [Cerberus](https://github.com/pyeve/cerberus) for input validation.
 - [ ] Comes with an authentication system which handles:
   - [ ] User email confirmation.
   - [ ] Forgot password/ password reset.
