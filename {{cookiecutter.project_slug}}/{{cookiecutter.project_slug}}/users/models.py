@@ -1,5 +1,5 @@
 from argon2 import PasswordHasher
-from argon2.exceptions import VerificationError
+from argon2.exceptions import VerifyMismatchError
 from flask_login import UserMixin
 
 from {{ cookiecutter.project_slug }}.base.models import BaseDocument
@@ -54,7 +54,7 @@ class User(BaseDocument, UserMixin):
                 hash=self.password, 
                 password=password
             )
-        except VerificationError:
+        except VerifyMismatchError:
             return False
 
     def has_stale_password(self) -> bool:

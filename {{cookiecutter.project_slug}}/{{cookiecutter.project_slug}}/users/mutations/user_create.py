@@ -90,7 +90,6 @@ class UserCreate(BaseMutation):
             email=data.get("email"), 
             username=data.get("username")
         )
-        # hash the user's password.
         user.set_password(data.get("password"))
         user.save()
 
