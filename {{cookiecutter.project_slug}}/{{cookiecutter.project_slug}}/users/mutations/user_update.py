@@ -28,17 +28,7 @@ class UserUpdate(BaseMutation):
     @classmethod
     def mutate_and_get_payload(cls, root, info, avatar=None, username=None):
         if username is not None:
-            if User.objects(username=username):
-                return cls(
-                    success=False,
-                    user_errors=(
-                        dict(
-                            field="username",
-                            message="Username is already taken."
-                        )
-                    )
-                )
-            # update the user's username.
+            # TODO: validate the username.
             current_user.username = username
             current_user.save()
 

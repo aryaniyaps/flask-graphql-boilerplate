@@ -38,9 +38,11 @@ class Authenticate(BaseMutation):
             return cls(
                 success=False,
                 user_errors=(
-                    dict(
-                        field="email",
-                        message="Incorrect email provided."
+                    list(
+                        dict(
+                            field="email",
+                            message="Incorrect email provided."
+                        )
                     ),
                 )
             )
@@ -49,9 +51,11 @@ class Authenticate(BaseMutation):
             return cls(
                 success=False,
                 user_errors=(
-                    dict(
-                        field="password",
-                        message="Incorrect password provided."
+                    list(
+                        dict(
+                            field="password",
+                            message="Incorrect password provided."
+                        )
                     ),
                 )
             )
