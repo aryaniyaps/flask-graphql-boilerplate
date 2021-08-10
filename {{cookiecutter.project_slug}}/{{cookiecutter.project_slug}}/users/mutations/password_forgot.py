@@ -22,13 +22,14 @@ class PasswordForgot(BaseMutation):
     def mutate_and_get_payload(cls, root, info, email):
         user = User.objects(email=email).first()
         if user is not None:
-            # TODO: generate a reset token.
+            # TODO: generate a valid reset token.
             reset_token = "RESET_TOKEN"
             send_mail(
                 to=user.email,
                 subject="Reset Password",
                 template=render_template(
                     "emails/password_reset.html",
+                    user=user,
                     token=reset_token
                 )
             )
