@@ -1,3 +1,4 @@
+from flask_login import current_user
 from graphene import String, Field
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
@@ -27,4 +28,15 @@ class EmailChange(BaseMutation):
 
     @classmethod
     def mutate_and_get_payload(cls, root, info, **data):
-        return cls(success=True)
+        email = data.get("email")
+        password = data.get("password")
+        if not current_user.check_password(password):
+            # TODO: handle errors here.
+            pass
+        # TODO: validate change code and email here.
+        current_user.email = email
+        current_user.save()
+        return cls(
+            success=True,
+            user=current_user
+        )
