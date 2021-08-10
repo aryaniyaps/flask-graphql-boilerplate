@@ -25,8 +25,10 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
             schema=schema.schema,
             graphiql=app.config.get("DEBUG"),
             context={
-                "user_loader": user_loader,
-                "user_by_username_loader": user_by_username_loader
+                "loaders": {
+                    "user_loader": user_loader,
+                    "user_by_username_loader": user_by_username_loader
+                }
             }
         )
     )

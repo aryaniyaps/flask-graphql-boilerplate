@@ -17,7 +17,8 @@ def resolve_viewer(root, info):
 
 
 def resolve_user(root, info, username):
-    user_by_username_loader = info.context.get("user_by_username_loader")
+    loaders = info.context.get("loaders")
+    user_by_username_loader = loaders.get("user_by_username_loader")
     return user_by_username_loader.load(key=username)
 
 
