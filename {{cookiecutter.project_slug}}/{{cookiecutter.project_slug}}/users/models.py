@@ -71,4 +71,4 @@ class User(BaseDocument, UserMixin):
         This should be preferred over hard deletes.
         """
         self.is_active = False
-        self.update()
+        self.save()

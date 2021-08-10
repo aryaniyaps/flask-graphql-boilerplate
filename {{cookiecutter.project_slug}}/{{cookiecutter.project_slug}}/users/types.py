@@ -25,5 +25,4 @@ class UserType(MongoengineObjectType):
         Loads an user within a batch.
         """
         loaders = info.context.get("loaders")
-        user_loader = loaders.get("user_loader")
-        return user_loader.load(key=id)
+        return loaders.get("user_by_id").load(key=id)
