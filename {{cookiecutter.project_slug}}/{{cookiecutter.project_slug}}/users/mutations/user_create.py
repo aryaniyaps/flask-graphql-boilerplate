@@ -41,7 +41,7 @@ class UserCreate(BaseMutation):
             username=data.get("username")
         )
         user.set_password(data.get("password"))
-        user.save()
+        user.save(force_insert=True)
 
         login_user(
             user=user, 

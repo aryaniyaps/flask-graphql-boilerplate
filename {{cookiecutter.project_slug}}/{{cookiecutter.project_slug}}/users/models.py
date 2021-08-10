@@ -60,7 +60,15 @@ class User(BaseDocument, UserMixin):
 
     def has_stale_password(self) -> bool:
         """
-        returns whether the current user's password
+        returns whether the user's password
         hash is stale and needs to be recalculated.
         """
         return password_hasher.check_needs_rehash(self.password)
+
+    def inactivate(self):
+        """
+        Marks the user instance as inactive.
+        This should be preferred over hard deletes.
+        """
+        self.is_active = False
+        self.update()
