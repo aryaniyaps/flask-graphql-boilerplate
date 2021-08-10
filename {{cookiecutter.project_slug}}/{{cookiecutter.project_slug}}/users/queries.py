@@ -10,6 +10,8 @@ __all__ = (
 
 
 def resolve_viewer(root, info):
+    if current_user.is_anonymous:
+        return None
     return current_user
 
 
