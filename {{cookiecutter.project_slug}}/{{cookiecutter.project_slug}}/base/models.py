@@ -9,9 +9,6 @@ class BaseDocument(db.Document):
     a set of base fields. Every document
     created must subclass this class.
     """
-    meta = {
-        "abstract": True
-    }
 
     created_at = db.DateTimeField(
         required=True,
@@ -21,6 +18,10 @@ class BaseDocument(db.Document):
         required=True,
         default=datetime.now()
     )
+
+    meta = {
+        "abstract": True
+    }
 
     def save(self, *args, **kwargs):
         """

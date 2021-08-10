@@ -10,9 +10,6 @@ password_hasher = PasswordHasher()
 
 
 class User(BaseDocument, UserMixin):
-    meta = {
-        "collection": "users"
-    }
     email = db.EmailField(
         unique=True,
         required=True,
@@ -36,6 +33,10 @@ class User(BaseDocument, UserMixin):
         default=True,
         required=True
     )
+
+    meta = {
+        "collection": "users"
+    }
 
     def set_password(self, password: str):
         """
