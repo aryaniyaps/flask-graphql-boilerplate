@@ -1,7 +1,6 @@
 from graphene import relay
 from graphene_mongo import MongoengineObjectType
 
-from .loaders import UserLoader
 from .models import User
 
 
@@ -25,4 +24,5 @@ class UserType(MongoengineObjectType):
         """
         Loads an user within a batch.
         """
-        return UserLoader().load(key=id)
+        user_loader = info.context.get("user_loader")
+        return user_loader.load(key=id)
