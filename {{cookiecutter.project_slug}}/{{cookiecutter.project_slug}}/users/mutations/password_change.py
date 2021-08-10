@@ -27,7 +27,7 @@ class PasswordChange(BaseMutation):
         new_password = data.get("new_password")
         old_password = data.get("old_password")
         if not current_user.check_password(old_password):
-            # TODO: handle errors here
+            # TODO: handle errors here.
             pass
         # TODO: validate new password here.
         current_user.set_password(new_password)

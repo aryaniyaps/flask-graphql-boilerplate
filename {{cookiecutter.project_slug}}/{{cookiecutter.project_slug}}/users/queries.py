@@ -1,3 +1,4 @@
+from flask_login import current_user
 from graphene import ObjectType, Field
 
 from .types import UserType
@@ -9,7 +10,7 @@ __all__ = (
 
 
 def resolve_viewer(root, info):
-    pass
+    return current_user
 
 
 class UserQuery(ObjectType):

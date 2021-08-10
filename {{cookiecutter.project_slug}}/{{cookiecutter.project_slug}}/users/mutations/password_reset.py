@@ -1,7 +1,9 @@
-from flask_login import login_user
+from flask import render_template
+from flask_login import current_user, login_user
 from graphene import String
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from {{ cookiecutter.project_slug }}.emails import send_mail
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
@@ -28,5 +30,16 @@ class PasswordReset(BaseMutation):
     @classmethod
     def mutate_and_get_payload(cls, root, info, **data):
         user = User()
+        # TODO: check email and reset token.
+        # TODO: validate new password.
+        # TODO: change user's password.
         login_user(user=user)
+        send_mail(
+            to=current_user.email,
+            subject="Password Changed",
+            template=render_template(
+                "emails/password_changed.html",
+                user=current_user
+            )
+        )
         return cls(success=True)
