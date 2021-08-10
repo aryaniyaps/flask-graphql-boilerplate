@@ -1,11 +1,7 @@
-from cerberus import Validator
 from graphene import Boolean, List
 from graphene.relay import ClientIDMutation
 
 from .types import ErrorType
-
-
-validator = Validator()
 
 
 class BaseMutation(ClientIDMutation):
