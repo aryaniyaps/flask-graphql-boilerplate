@@ -29,10 +29,12 @@ class PasswordReset(BaseMutation):
 
     @classmethod
     def mutate_and_get_payload(cls, root, info, **data):
+        password = data.get("password")
         user = User()
         # TODO: check email and reset token.
         # TODO: validate new password.
-        # TODO: change user's password.
+        user.set_password(password)
+        user.save()
         login_user(user=user)
         send_mail(
             to=current_user.email,
