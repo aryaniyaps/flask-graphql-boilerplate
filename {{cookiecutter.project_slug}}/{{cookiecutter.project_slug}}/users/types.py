@@ -1,6 +1,7 @@
 from graphene import relay
 from graphene_mongo import MongoengineObjectType
 
+from .loaders import UserLoader
 from .models import User
 
 
@@ -18,3 +19,7 @@ class UserType(MongoengineObjectType):
         interfaces = (
             relay.Node,
         )
+
+    @classmethod
+    def get_node(cls, info, id):
+        return UserLoader.load(key=id)
