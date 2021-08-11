@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 @click.command()
 def test():
     """
-    runs the test suite.
+    Runs the test suite.
     """
     import pytest
     

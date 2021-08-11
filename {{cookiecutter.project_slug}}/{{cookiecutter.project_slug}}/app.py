@@ -11,7 +11,7 @@ from {{ cookiecutter.project_slug }}.users.models import User
 
 def create_app(config="{{ cookiecutter.project_slug }}.settings"):
     """
-    initializes and returns an app.
+    Initializes and returns an app.
     """
     app = Flask(__name__)
     app.config.from_object(config)
@@ -51,7 +51,7 @@ def configure_url_rules(app):
 
 def configure_extensions(app):
     """
-    configures extensions for the server.
+    Configures extensions for the server.
     """
     db.init_app(app)
     mail.init_app(app)
@@ -69,14 +69,14 @@ def configure_extensions(app):
 
 def configure_commands(app):
     """
-    configures commands for the server.
+    Configures commands for the server.
     """
     app.cli.add_command(commands.test)
 
 
 def configure_shell_context(app):
     """
-    configures shell context processors for the server.
+    Configures shell context processors for the server.
     """
 
     app.shell_context_processor(
@@ -89,7 +89,7 @@ def configure_shell_context(app):
 
 def configure_context_processors(app):
     """
-    configures context processors which
+    Configures context processors which
     inject values into templates.
     """
 

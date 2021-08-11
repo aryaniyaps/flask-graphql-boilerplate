@@ -44,14 +44,14 @@ class User(BaseDocument, UserMixin):
 
     def set_password(self, password: str):
         """
-        sets a hashed version of the provided
+        Sets a hashed version of the provided
         password on the user instance.
         """
         self.password = password_hasher.hash(password)
 
     def check_password(self, password: str) -> bool:
         """
-        returns whether the provided password
+        Returns whether the provided password
         matches the user's password hash.
         """
         try:
@@ -64,7 +64,7 @@ class User(BaseDocument, UserMixin):
 
     def has_stale_password(self) -> bool:
         """
-        returns whether the user's password
+        Returns whether the user's password
         hash is stale and needs to be recalculated.
         """
         return password_hasher.check_needs_rehash(self.password)

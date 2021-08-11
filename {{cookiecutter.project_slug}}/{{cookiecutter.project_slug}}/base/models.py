@@ -25,7 +25,7 @@ class BaseDocument(db.Document):
 
     def save(self, *args, **kwargs):
         """
-        keeps track of the `created_at` and
+        Keeps track of the `created_at` and
         `updated_at` fields for the document.
         """
         if not self.created_at:
