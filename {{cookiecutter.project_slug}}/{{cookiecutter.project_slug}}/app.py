@@ -16,6 +16,19 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
     app = Flask(__name__)
     app.config.from_object(config)
 
+    configure_url_rules(app)
+    configure_extensions(app)
+    configure_commands(app)
+    configure_context_processors(app)
+    configure_shell_context(app)
+
+    return app
+
+
+def configure_url_rules(app):
+    """
+    Configures URL rules for the server.
+    """
     app.add_url_rule(
         rule="/graphql",
         view_func=GraphQLView.as_view(
@@ -25,12 +38,15 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
         )
     )
 
-    configure_extensions(app)
-    configure_commands(app)
-    configure_context_processors(app)
-    configure_shell_context(app)
-
-    return app
+    # batch querying support.
+    app.add_url_rule(
+        rule="/graphql/batch",
+        view_func=GraphQLView.as_view(
+            name="graphql",
+            schema=schema.schema,
+            batch=True
+        )
+    )
 
 
 def configure_extensions(app):

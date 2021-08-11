@@ -22,6 +22,7 @@ mostly start off my projects with this template.
 - [x] Comes with support for [Flask-CORS](https://github.com/corydolphin/flask-cors).
 - [x] Offers complete support for the [Relay](https://github.com/facebook/relay) API spec.
 - [x] GraphQL file uploads support.
+- [x] Batch querying support (for use with [Apollo Client](https://github.com/apollographql/apollo-client)).
 - [x] Follows the official [Shopify GraphQL Design](https://github.com/Shopify/graphql-design-tutorial) guide.
 - [x] Uses [Pytest](https://github.com/pytest-dev/pytest) and [FactoryBoy](https://github.com/FactoryBoy/factory_boy) for testing.
 - [x] [DataLoader](https://github.com/syrusakbary/aiodataloader) support (fixes the n+1 problem).
