@@ -6,8 +6,6 @@ from flask_graphql import GraphQLView
 from {{ cookiecutter.project_slug }} import schema, commands
 from {{ cookiecutter.project_slug }}.extensions import mail, db, cors
 from {{ cookiecutter.project_slug }}.extensions import login_manager
-from {{ cookiecutter.project_slug }}.users.loaders import UserByIdLoader
-from {{ cookiecutter.project_slug }}.users.loaders import UserByUsernameLoader
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
@@ -23,13 +21,7 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
         view_func=GraphQLView.as_view(
             name="graphql",
             schema=schema.schema,
-            graphiql=app.config.get("DEBUG"),
-            context={
-                "loaders": {
-                    "user_by_id": UserByIdLoader(),
-                    "user_by_username": UserByUsernameLoader()
-                }
-            }
+            graphiql=app.config.get("DEBUG")
         )
     )
 

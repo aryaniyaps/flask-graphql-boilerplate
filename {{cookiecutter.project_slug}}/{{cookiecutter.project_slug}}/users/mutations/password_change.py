@@ -1,5 +1,5 @@
 from flask import render_template
-from flask_login import current_user
+from flask_login import current_user, logout_user
 from graphene import String
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
@@ -32,7 +32,8 @@ class PasswordChange(BaseMutation):
         # TODO: validate new password here.
         current_user.set_password(new_password)
         current_user.save()
-        # TODO: logout existing user sessions.
+        # logout existing user sessions.
+        logout_user()
         send_mail(
             to=current_user.email,
             subject="Password Changed",

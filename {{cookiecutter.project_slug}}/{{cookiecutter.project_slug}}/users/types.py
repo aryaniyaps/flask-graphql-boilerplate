@@ -22,4 +22,4 @@ class UserType(MongoengineObjectType):
     @classmethod
     def get_node(cls, info, id):
         loaders = info.context.get("loaders")
-        return loaders.get("user_by_id").load(key=id)
+        return loaders.get("users_by_id").load(key=id)

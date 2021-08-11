@@ -33,6 +33,10 @@ class User(BaseDocument, UserMixin):
         default=True,
         required=True
     )
+    is_verified = db.BooleanField(
+        default=False,
+        required=True
+    )
 
     meta = {
         "collection": "users"
@@ -64,6 +68,13 @@ class User(BaseDocument, UserMixin):
         hash is stale and needs to be recalculated.
         """
         return password_hasher.check_needs_rehash(self.password)
+    
+    def verify(self):
+        """
+        Marks the user instance as email verified.
+        """
+        self.is_verified = True
+        self.save()
 
     def inactivate(self):
         """

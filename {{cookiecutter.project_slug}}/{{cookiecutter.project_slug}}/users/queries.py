@@ -17,7 +17,7 @@ def resolve_viewer(root, info):
 
 def resolve_user(root, info, username):
     loaders = info.context.get("loaders")
-    return loaders.get("user_by_username").load(key=username)
+    return loaders.get("users_by_username").load(key=username)
 
 
 class UserQuery(ObjectType):
