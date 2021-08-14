@@ -1,4 +1,4 @@
-from {{ cookiecutter.project_slug }}.loaders import BaseLoader
+from {{ cookiecutter.project_slug }}.base.loaders import BaseLoader
 from .models import User
 
 

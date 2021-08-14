@@ -42,7 +42,7 @@ def configure_url_rules(app):
     app.add_url_rule(
         rule="/graphql/batch",
         view_func=GraphQLView.as_view(
-            name="graphql",
+            name="graphql-batch",
             schema=schema.schema,
             batch=True
         )
