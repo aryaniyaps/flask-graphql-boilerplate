@@ -10,6 +10,7 @@ from .password_reset import PasswordReset
 from .password_forgot import PasswordForgot
 from .email_change_request import EmailChangeRequest
 from .email_change import EmailChange
+from .send_signup_code import SendSignupCode
 from .password_change import PasswordChange
 
 
@@ -29,4 +30,5 @@ class UserMutation(ObjectType):
     password_forgot = PasswordForgot.Field()
     email_change_request = EmailChangeRequest.Field()
     email_change = EmailChange.Field()
+    send_signup_code = SendSignupCode.Field()
     password_change = PasswordChange.Field()
