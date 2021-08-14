@@ -1,3 +1,4 @@
+from promise import Promise
 from {{ cookiecutter.project_slug }}.base.loaders import BaseLoader
 from .models import User
 
@@ -11,7 +12,7 @@ class UserByIDLoader(BaseLoader):
 
     def batch_load_fn(self, keys):
         users = User.query.filter(User.id.in_(keys))
-        return map(lambda user_id: users.get(user_id), keys)
+        return Promise.resolve(list(users))
 
 
 class UserByUsernameLoader(BaseLoader):
@@ -23,4 +24,4 @@ class UserByUsernameLoader(BaseLoader):
 
     def batch_load_fn(self, keys):
         users = User.query.filter(User.username.in_(keys))
-        return map(lambda username: users.get(username), keys)
+        return Promise.resolve(list(users))
