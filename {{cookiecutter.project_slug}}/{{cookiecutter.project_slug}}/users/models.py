@@ -76,7 +76,7 @@ class User(BaseDocument, UserMixin):
         self.is_verified = True
         self.save()
 
-    def inactivate(self):
+    def deactivate(self):
         """
         Marks the user instance as inactive.
         This should be preferred over hard deletes.
