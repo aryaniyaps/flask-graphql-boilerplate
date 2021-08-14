@@ -24,7 +24,7 @@ class PasswordChange(BaseMutation):
         )
     
     @classmethod
-    def mutate_and_get_payload(cls, root, info, **data):
+    def perform_mutate(cls, root, info, **data):
         new_password = data.get("new_password")
         old_password = data.get("old_password")
         if not current_user.check_password(old_password):

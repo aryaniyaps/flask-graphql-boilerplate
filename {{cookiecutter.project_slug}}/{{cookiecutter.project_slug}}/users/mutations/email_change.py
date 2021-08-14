@@ -28,7 +28,7 @@ class EmailChange(BaseMutation):
     )
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, **data):
+    def perform_mutate(cls, root, info, **data):
         email = data.get("email")
         password = data.get("password")
         if not current_user.check_password(password):

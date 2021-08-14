@@ -29,7 +29,7 @@ class PasswordReset(BaseMutation):
         )
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, **data):
+    def perform_mutate(cls, root, info, **data):
         password = data.get("password")
         user = User()
         # TODO: check email and reset token.

@@ -33,7 +33,7 @@ class Authenticate(BaseMutation):
     )
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, email, password, remember):
+    def perform_mutate(cls, root, info, email, password, remember):
         user = User.query.get(email=email)
         if user is None:
             return cls(

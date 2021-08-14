@@ -12,7 +12,7 @@ class SendSignupCode(BaseMutation):
         email = String(required=True)
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, email):
+    def perform_mutate(cls, root, info, email):
         # TODO: check if email already exists
         # TODO: send signup code to email
         return cls(success=True)

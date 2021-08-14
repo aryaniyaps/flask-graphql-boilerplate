@@ -19,7 +19,7 @@ class PasswordForgot(BaseMutation):
         )
     
     @classmethod
-    def mutate_and_get_payload(cls, root, info, email):
+    def perform_mutate(cls, root, info, email):
         user = User.query.get(email=email)
         if user is not None:
             # TODO: generate a valid reset token.

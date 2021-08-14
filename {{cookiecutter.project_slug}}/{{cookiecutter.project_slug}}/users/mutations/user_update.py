@@ -26,7 +26,7 @@ class UserUpdate(BaseMutation):
     )
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, avatar=None, username=None):
+    def perform_mutate(cls, root, info, avatar=None, username=None):
         if username is not None:
             # TODO: validate the username.
             current_user.username = username

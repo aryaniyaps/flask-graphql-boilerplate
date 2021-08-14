@@ -15,5 +15,5 @@ class AvatarRemove(BaseMutation):
     )
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, **data):
+    def perform_mutate(cls, root, info, **data):
         return cls(success=True)

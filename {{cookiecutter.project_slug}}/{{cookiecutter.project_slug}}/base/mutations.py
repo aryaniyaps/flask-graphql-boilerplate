@@ -18,3 +18,15 @@ class BaseMutation(ClientIDMutation):
 
     class Meta:
         abstract = True
+
+    @classmethod
+    def mutate_and_get_payload(cls, root, info, **data):
+        try:
+            return cls.perform_mutate(root, info, **data)
+        except Exception:
+            # handle errors here
+            pass
+
+    @classmethod
+    def perform_mutate(cls, root, info, **data):
+        pass

@@ -13,7 +13,7 @@ class UserDeactivate(BaseMutation):
         password = String(required=True)
     
     @classmethod
-    def mutate_and_get_payload(cls, root, info, **data):
+    def perform_mutate(cls, root, info, **data):
         # TODO: check user's password.
         current_user.is_active = False
         db.session.commit()

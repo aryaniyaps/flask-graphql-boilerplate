@@ -65,7 +65,7 @@ def configure_extensions(app):
         Looks up an user with the given
         user ID from the database.
         """
-        return User.objects(id=user_id).first()
+        return User.query.get(id=user_id)
 
 
 def configure_commands(app):
