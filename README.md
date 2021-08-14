@@ -1,14 +1,16 @@
 <p align="center">
   <img src="assets/banner.jpg" />
-  a Flask template for <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> to get you up and running, powered by GraphQL.
+  a Flask template for <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> to get you up 
+  and running, powered by GraphQL.
 </p>
 
 ## Motivation ⛵
 
-The GraphQL community is relatively new, and there are fewer resources to help you get started with it in the Python ecosystem. While I started to write
-GraphQL projects with Python, I experienced a lot of friction, and wrote a lot of boilerplate code. Eventually, I figured out that it would be easier to
-make a template which would help me to get up and running. This template uses a lot of modern libraries to provide the best developer experience. Today, I
-mostly start off my projects with this template.
+The GraphQL community is relatively new, and there are fewer resources to help you get started with it in the Python 
+ecosystem. While I started to write GraphQL projects with Python, I experienced a lot of friction, and wrote a lot of 
+boilerplate code. Eventually, I figured out that it would be easier to make a template which would help me to get up 
+and running. This template uses a lot of modern libraries to provide the best developer experience. Today, I mostly 
+start off my projects with this template.
 
 ## Features at a glance ✨
 
@@ -17,14 +19,15 @@ mostly start off my projects with this template.
 - [x] Uses [Graphene](https://github.com/graphql-python/graphene) for the GraphQL schema.
 - [x] Pre-Configured [Jinja2](https://github.com/pallets/jinja) email templates.
 - [x] Built in support for sending emails.
-- [x] [MongoEngine](https://github.com/MongoEngine/mongoengine) ODM support.
+- [x] Postgres and [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) support.
 - [x] Uses [Pipenv](https://github.com/pypa/pipenv) to manage dependencies.
 - [x] Comes with support for [Flask-CORS](https://github.com/corydolphin/flask-cors).
 - [x] Offers complete [Relay](https://github.com/facebook/relay) support.
 - [x] GraphQL file uploads support.
 - [x] Batch querying support (for use with [Apollo Client](https://github.com/apollographql/apollo-client)).
 - [x] Follows the official [Shopify GraphQL Design](https://github.com/Shopify/graphql-design-tutorial) guide.
-- [x] Uses [Pytest](https://github.com/pytest-dev/pytest) and [FactoryBoy](https://github.com/FactoryBoy/factory_boy) for testing.
+- [x] Uses [Pytest](https://github.com/pytest-dev/pytest) and [FactoryBoy](https://github.com/FactoryBoy/factory_boy) 
+for testing.
 - [x] [DataLoader](https://github.com/syrusakbary/aiodataloader) support (fixes the n+1 problem).
 - [ ] Uses [Cerberus](https://github.com/pyeve/cerberus) for input validation.
 - [ ] Comes with an authentication system which handles:
@@ -52,4 +55,5 @@ cookiecutter https://github.com/codebyaryan/flask-graphql-boilerplate
 
 ## Contributing 📄
 
-This project is open for contributions! Make sure to read the [contributing guidelines](.github/CONTRIBUTING.md) to get started.
+This project is open for contributions! Make sure to read the [contributing guidelines](.github/CONTRIBUTING.md) to 
+get started.

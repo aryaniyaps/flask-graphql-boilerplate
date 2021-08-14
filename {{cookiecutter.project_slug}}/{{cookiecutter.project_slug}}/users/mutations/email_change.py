@@ -2,6 +2,7 @@ from flask_login import current_user
 from graphene import String, Field
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from {{ cookiecutter.project_slug }}.extensions import db
 from {{ cookiecutter.project_slug }}.users.types import UserType
 
 
@@ -35,7 +36,7 @@ class EmailChange(BaseMutation):
             pass
         # TODO: validate change code and email here.
         current_user.email = email
-        current_user.save()
+        db.session.commit()
         return cls(
             success=True,
             user=current_user

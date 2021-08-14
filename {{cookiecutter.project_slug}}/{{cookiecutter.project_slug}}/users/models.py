@@ -2,45 +2,45 @@ from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
 from flask_login import UserMixin
 
-from {{ cookiecutter.project_slug }}.base.models import BaseDocument
+from {{ cookiecutter.project_slug }}.base.models import BaseModel
 from {{ cookiecutter.project_slug }}.extensions import db
 
 
 password_hasher = PasswordHasher()
 
 
-class User(BaseDocument, UserMixin):
-    email = db.EmailField(
+class User(BaseModel, UserMixin):
+    __tablename__ = "users"
+
+    email = db.Column(
+        db.String(255),
         unique=True,
-        required=True,
+        nullable=False,
+        index=True
     )
-    username = db.StringField(
-        min_length=2,
-        max_length=32,
-        required=True,
+    username = db.Column(
+        db.String(32),
         unique=True,
+        nullable=False,
+        index=True
     )
-    password = db.StringField(
-        min_length=8,
-        regex=r"[A-Za-z0-9@#$%^&+=]",
-        required=True,
+    password = db.Column(
+        db.String(255),
+        nullable=False
     )
-    avatar = db.StringField(
+    avatar = db.Column(
+        db.String(255),
         default="default.jpg",
-        required=True
+        nullable=False
     )
-    is_active = db.BooleanField(
+    is_active = db.Column(
+        db.Boolean,
         default=True,
-        required=True
-    )
-    is_verified = db.BooleanField(
-        default=False,
-        required=True
+        nullable=False
     )
 
-    meta = {
-        "collection": "users"
-    }
+    def __repr__(self):
+        return "<User %s>" % self.id
 
     def set_password(self, password: str):
         """
@@ -68,18 +68,3 @@ class User(BaseDocument, UserMixin):
         hash is stale and needs to be recalculated.
         """
         return password_hasher.check_needs_rehash(self.password)
-    
-    def verify(self):
-        """
-        Marks the user instance as email verified.
-        """
-        self.is_verified = True
-        self.save()
-
-    def deactivate(self):
-        """
-        Marks the user instance as inactive.
-        This should be preferred over hard deletes.
-        """
-        self.is_active = False
-        self.save()

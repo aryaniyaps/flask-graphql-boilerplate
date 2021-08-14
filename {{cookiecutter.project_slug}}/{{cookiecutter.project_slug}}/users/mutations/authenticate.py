@@ -2,6 +2,7 @@ from flask_login import login_user
 from graphene import String, Boolean, Field
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from {{ cookiecutter.project_slug }}.extensions import db
 from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.types import UserType
 
@@ -33,8 +34,8 @@ class Authenticate(BaseMutation):
 
     @classmethod
     def mutate_and_get_payload(cls, root, info, email, password, remember):
-        user = User.objects(email=email).first()
-        if not user:
+        user = User.query.get(email=email)
+        if user is None:
             return cls(
                 success=False,
                 user_errors=(
@@ -63,7 +64,7 @@ class Authenticate(BaseMutation):
         if user.has_stale_password():
             # recalculate the user's password hash.
             user.set_password(password)
-            user.save()
+            db.session.commit()
         
         login_user(
             user=user, 

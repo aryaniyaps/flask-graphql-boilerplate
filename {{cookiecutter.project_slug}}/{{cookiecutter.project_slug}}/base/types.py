@@ -1,4 +1,4 @@
-from graphene import ObjectType, String, List, NonNull
+from graphene import ObjectType, String, List
 
 
 class ErrorType(ObjectType):

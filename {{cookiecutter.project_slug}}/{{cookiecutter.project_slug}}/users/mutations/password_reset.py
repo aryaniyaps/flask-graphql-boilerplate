@@ -3,6 +3,7 @@ from flask_login import current_user, login_user
 from graphene import String
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from {{ cookiecutter.project_slug }}.extensions import db
 from {{ cookiecutter.project_slug }}.emails import send_mail
 from {{ cookiecutter.project_slug }}.users.models import User
 
@@ -34,7 +35,7 @@ class PasswordReset(BaseMutation):
         # TODO: check email and reset token.
         # TODO: validate new password.
         user.set_password(password)
-        user.save()
+        db.session.commit()
         login_user(user=user)
         send_mail(
             to=current_user.email,

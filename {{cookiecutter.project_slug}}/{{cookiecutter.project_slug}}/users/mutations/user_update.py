@@ -3,7 +3,7 @@ from graphene import String, Field
 from graphene_file_upload.scalars import Upload
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
-from {{ cookiecutter.project_slug }}.users.models import User
+from {{ cookiecutter.project_slug }}.extensions import db
 from {{ cookiecutter.project_slug }}.users.types import UserType
 
 
@@ -30,7 +30,7 @@ class UserUpdate(BaseMutation):
         if username is not None:
             # TODO: validate the username.
             current_user.username = username
-            current_user.save()
+            db.session.commit()
 
         if avatar is not None:
             # TODO: save the user's new avatar.

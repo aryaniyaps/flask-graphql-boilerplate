@@ -2,6 +2,7 @@ from flask_login import login_user
 from graphene import String, Boolean, Field
 
 from {{ cookiecutter.project_slug }}.base.mutations import BaseMutation
+from {{ cookiecutter.project_slug }}.extensions import db
 from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.types import UserType
 
@@ -41,7 +42,7 @@ class UserCreate(BaseMutation):
             username=data.get("username")
         )
         user.set_password(data.get("password"))
-        user.save(force_insert=True)
+        db.session.commit()
 
         login_user(
             user=user, 

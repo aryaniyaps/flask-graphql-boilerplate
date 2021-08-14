@@ -16,11 +16,9 @@ CORS_ORIGINS = env.str("CORS_ORIGINS")
 CORS_ALLOW_HEADERS = env.str("CORS_ALLOW_HEADERS")
 CORS_SUPPORTS_CREDENTIALS = env.bool("CORS_SUPPORTS_CREDENTIALS")
 
-# flask-mongoengine configuration.
-MONGODB_SETTINGS = {
-    "host": env.str("DATABASE_URL"),
-    "connect": env.bool("MONGODB_CONNECT", default=True)
-}
+# flask-sqlalchemy configuration.
+SQLALCHEMY_DATABASE_URI = env.str("DATABASE_URL")
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # flask-mail configuration.
 MAIL_PORT = env.int("MAIl_PORT", default=465)
