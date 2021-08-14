@@ -1,6 +1,7 @@
 from flask_login import current_user
 from graphene import ObjectType, Field, String
 
+from .loaders import UserByUsernameLoader
 from .types import UserType
 
 
@@ -16,8 +17,8 @@ def resolve_viewer(root, info):
 
 
 def resolve_user(root, info, username):
-    loaders = info.context.get("loaders")
-    return loaders.get("users_by_username").load(key=username)
+    loader = UserByUsernameLoader(info.context)
+    return loader.load(key=username)
 
 
 class UserQuery(ObjectType):

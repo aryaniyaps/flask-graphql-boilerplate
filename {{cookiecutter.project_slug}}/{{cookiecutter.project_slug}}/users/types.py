@@ -1,6 +1,7 @@
 from graphene import relay
 from graphene_sqlalchemy import SQLAlchemyObjectType
 
+from .loaders import UserByIDLoader
 from .models import User
 
 
@@ -21,5 +22,5 @@ class UserType(SQLAlchemyObjectType):
 
     @classmethod
     def get_node(cls, info, id):
-        loaders = info.context.get("loaders")
-        return loaders.get("users_by_id").load(key=id)
+        loader = UserByIDLoader(info.context)
+        return loader.load(key=id)

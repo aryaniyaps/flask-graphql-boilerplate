@@ -1,9 +1,8 @@
-from aiodataloader import DataLoader
-
+from {{ cookiecutter.project_slug }}.loaders import BaseLoader
 from .models import User
 
 
-class UserByIdLoader(DataLoader):
+class UserByIDLoader(BaseLoader):
     """
     Loads users by their User-ID.
     """
@@ -12,7 +11,7 @@ class UserByIdLoader(DataLoader):
         return [users.get(user_id) for user_id in keys]
 
 
-class UserByUsernameLoader(DataLoader):
+class UserByUsernameLoader(BaseLoader):
     """
     Loads users by their username.
     """
