@@ -1,4 +1,4 @@
-from aiodataloader import DataLoader
+from promise.dataloader import DataLoader
 from flask import Request
 
 
@@ -16,11 +16,7 @@ class BaseLoader(DataLoader):
         if not hasattr(context, "loaders"):
             context.loaders = {}
         if cls.context_key not in context.loaders:
-            setattr(
-                context.loaders,
-                cls.context_key,
-                super().__new__(cls, context)
-            )
+            context.loaders.setdefault(cls.context_key, super().__new__(cls))
         loader = context.loaders.get(cls.context_key)
         assert isinstance(loader, cls)
         return loader

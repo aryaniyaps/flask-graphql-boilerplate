@@ -9,7 +9,7 @@ class UserByIDLoader(BaseLoader):
 
     context_key = "users_by_id"
 
-    async def batch_load_fn(self, keys):
+    def batch_load_fn(self, keys):
         users = User.query.filter(User.id.in_(keys))
         return map(lambda user_id: users.get(user_id), keys)
 
@@ -21,6 +21,6 @@ class UserByUsernameLoader(BaseLoader):
 
     context_key = "users_by_username"
 
-    async def batch_load_fn(self, keys):
+    def batch_load_fn(self, keys):
         users = User.query.filter(User.username.in_(keys))
         return map(lambda username: users.get(username), keys)

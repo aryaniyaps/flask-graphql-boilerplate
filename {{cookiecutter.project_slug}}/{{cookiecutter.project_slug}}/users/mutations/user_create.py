@@ -42,6 +42,7 @@ class UserCreate(BaseMutation):
             username=data.get("username")
         )
         user.set_password(data.get("password"))
+        db.session.add(user)
         db.session.commit()
 
         login_user(
