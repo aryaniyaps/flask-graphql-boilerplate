@@ -2,7 +2,7 @@ from {{ cookiecutter.project_slug }}.extensions import mail
 from flask_mail import Message
 
 
-def send_mail(to, subject, template, body=None):
+def send_mail(to: str, subject: str, template: str, body: str=None) -> None:
     """
     Sends an individual mail to the
     specified recipient, with the given

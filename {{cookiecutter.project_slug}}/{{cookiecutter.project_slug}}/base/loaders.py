@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from promise.dataloader import DataLoader
 from flask import Request
 
@@ -10,7 +12,7 @@ class BaseLoader(DataLoader):
     context = None
     context_key = None
 
-    def __new__(cls, context: Request):
+    def __new__(cls, context: Request) -> BaseLoader:
         if cls.context_key is None:
             raise TypeError("Data loader %r does not define a context key" % (cls,))
         if not hasattr(context, "loaders"):

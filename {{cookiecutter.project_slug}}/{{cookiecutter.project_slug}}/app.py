@@ -8,8 +8,10 @@ from {{ cookiecutter.project_slug }}.extensions import migrate, db, cors
 from {{ cookiecutter.project_slug }}.extensions import login_manager, mail
 from {{ cookiecutter.project_slug }}.users.models import User
 
+__all__ = ("create_app",)
 
-def create_app(config="{{ cookiecutter.project_slug }}.settings"):
+
+def create_app(config="{{ cookiecutter.project_slug }}.settings") -> Flask:
     """
     Initializes and returns an app.
     """
@@ -25,7 +27,7 @@ def create_app(config="{{ cookiecutter.project_slug }}.settings"):
     return app
 
 
-def configure_url_rules(app):
+def configure_url_rules(app: Flask) -> None:
     """
     Configures URL rules for the server.
     """
@@ -49,7 +51,7 @@ def configure_url_rules(app):
     )
 
 
-def configure_extensions(app):
+def configure_extensions(app: Flask) -> None:
     """
     Configures extensions for the server.
     """
@@ -68,14 +70,14 @@ def configure_extensions(app):
         return User.query.get(id=user_id)
 
 
-def configure_commands(app):
+def configure_commands(app: Flask) -> None:
     """
     Configures commands for the server.
     """
     app.cli.add_command(commands.test)
 
 
-def configure_shell_context(app):
+def configure_shell_context(app: Flask) -> None:
     """
     Configures shell context processors for the server.
     """
@@ -88,7 +90,7 @@ def configure_shell_context(app):
     )
 
 
-def configure_context_processors(app):
+def configure_context_processors(app: Flask) -> None:
     """
     Configures context processors which
     inject values into templates.

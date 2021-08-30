@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 @click.command()
-def test():
+def test() -> None:
     """
     Runs the test suite.
     """
