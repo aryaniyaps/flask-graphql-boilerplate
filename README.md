@@ -50,7 +50,7 @@ pip install cookiecutter
 You can get started by entering the following command.
 
 ```cmd
-cookiecutter https://github.com/codebyaryan/flask-graphql-boilerplate
+cookiecutter https://github.com/aryaniyaps/flask-graphql-boilerplate
 ```
 
 ## Contributing 📄
