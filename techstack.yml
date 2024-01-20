@@ -1,0 +1,331 @@
+repo_name: aryaniyaps/flask-graphql-boilerplate
+report_id: 527b4fba3329b466b4651f1416dcb700
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-20T08:13:23+00:00'
+requested_by: aryaniyaps
+provider: github
+branch: main
+detected_tools_count: 24
+tools:
+- name: Python
+  description: A clear and powerful object-oriented programming language, comparable
+    to Perl, Ruby, Scheme, or Java.
+  website_url: https://www.python.org
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate
+  detection_source: Repo Metadata
+- name: Flask
+  description: A microframework for Python based on Werkzeug, Jinja 2 and good intentions
+  website_url: http://flask.pocoo.org/
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Microframeworks (Backend)
+  image_url: https://img.stackshare.io/service/1001/default_6d109315b60108628b7cd3e159b84645c31ef0e2.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 10:48:32.000000000 Z
+- name: SQLAlchemy
+  description: The Python SQL Toolkit and Object Relational Mapper
+  website_url: http://www.sqlalchemy.org/
+  version: 1.4.22
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Object Relational Mapper (ORM)
+  image_url: https://img.stackshare.io/service/1839/q5uAkmy7.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 10:48:32.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate
+  detection_source: Repo Metadata
+- name: GitHub Actions
+  description: Automate your workflow from idea to production
+  website_url: https://github.com/features/actions
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/.github/workflows/codeql-analysis.yml
+  detection_source: ".github/workflows/codeql-analysis.yml"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-07-31 09:10:56.000000000 Z
+- name: PyPI
+  description: A repository of software for the Python programming language
+  website_url: https://pypi.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Hosted Package Repository
+  image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-07-31 06:24:34.000000000 Z
+- name: Werkzeug
+  website_url: https://palletsprojects.com/p/werkzeug/
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/11076/iwoLyNPI_normal.jpg
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-10 04:31:48.000000000 Z
+- name: Cerberus
+  description: Lightweight
+  package_url: https://pypi.org/project/Cerberus
+  license: ISC
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20134/default_63496fad3a0d7f53dd64e62ea6fbf572d8522379.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-10 08:21:01.000000000 Z
+- name: Flask-Cors
+  description: A Flask extension adding a decorator for CORS support
+  package_url: https://pypi.org/project/Flask-Cors
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19977/default_29192d68c64b1a3be468b1b73c2a129fc390c4f4.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 10:48:32.000000000 Z
+- name: Flask-GraphQL
+  description: Adds GraphQL support to your Flask application
+  package_url: https://pypi.org/project/Flask-GraphQL
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-30 02:06:36.000000000 Z
+- name: Flask-Login
+  description: User session management for Flask
+  package_url: https://pypi.org/project/Flask-Login
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20091/default_5d939a1a27846185eb6de438be4bf77b84b4ee87.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 10:48:32.000000000 Z
+- name: Flask-Mail
+  description: Flask extension for sending email
+  package_url: https://pypi.org/project/Flask-Mail
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 10:48:32.000000000 Z
+- name: Flask-Migrate
+  description: SQLAlchemy database migrations for Flask applications using Alembic
+  package_url: https://pypi.org/project/Flask-Migrate
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20329/default_cf6b540611cb9b9b5d016a661f54f50ad3400f1a.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 10:48:32.000000000 Z
+- name: Flask-SQLAlchemy
+  description: Adds SQLAlchemy support to your Flask application
+  package_url: https://pypi.org/project/Flask-SQLAlchemy
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19941/default_aacb529ceff756b62765790d8d6787a041d514ff.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 10:48:32.000000000 Z
+- name: argon2-cffi
+  description: The secure Argon2 password hashing algorithm
+  package_url: https://pypi.org/project/argon2-cffi
+  version: 20.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-06 05:21:37.000000000 Z
+- name: click
+  description: Composable command line interface toolkit
+  package_url: https://pypi.org/project/click
+  version: 8.0.1
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19830/default_74a61b43bdb9fc0cba2978316b9976f43545029b.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-02 03:34:13.000000000 Z
+- name: cookiecutter
+  description: A command-line utility that creates projects from project templates,
+    e.g
+  package_url: https://pypi.org/project/cookiecutter
+  version: 1.7.3
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20075/default_7ab6b1c940c208874d4a483f0d832c7b45b3d24e.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/Pipfile.lock
+  detection_source: Pipfile
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-01 16:18:04.000000000 Z
+  vulnerabilities:
+  - name: OS Command Injection in cookiecutter
+    cve_id: CVE-2022-24065
+    cve_url: https://github.com/advisories/GHSA-f4q6-9qm4-h8j4
+    detected_date: Jun 10
+    severity: high
+    first_patched: 2.1.1
+- name: environs
+  description: Simplified environment variable parsing
+  package_url: https://pypi.org/project/environs
+  version: 9.3.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20429/default_7defdc8d75243dda839b1aed62f8631f461dead1.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-07-31 06:24:34.000000000 Z
+- name: factory-boy
+  description: A versatile test fixtures replacement based on thoughtbot's factory_bot
+    for Ruby
+  package_url: https://pypi.org/project/factory-boy
+  version: 3.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-07-31 14:36:29.000000000 Z
+- name: graphene
+  description: GraphQL Framework for Python
+  package_url: https://pypi.org/project/graphene
+  version: 2.1.9
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20293/default_fbb28b4e332d257da7e7f1277d3ce073b5270511.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-30 02:06:36.000000000 Z
+- name: graphene-sqlalchemy
+  description: Graphene SQLAlchemy integration
+  package_url: https://pypi.org/project/graphene-sqlalchemy
+  version: 2.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-30 02:06:36.000000000 Z
+- name: promise
+  description: Promises/A+ implementation for Python
+  package_url: https://pypi.org/project/promise
+  version: 2.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20474/default_4678b3a0f8bef4a4806a0b8511b2c80a0421ef77.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 12:09:20.000000000 Z
+- name: psycopg2
+  description: Psycopg2 - Python-PostgreSQL Database Adapter
+  package_url: https://pypi.org/project/psycopg2
+  version: 2.9.1
+  license: BSD-3-Clause-Attribution
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20416/default_64aa60b33468d1d28611966765867676f6303b64.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-08-14 11:46:51.000000000 Z
+- name: pytest
+  description: 'Pytest: simple powerful testing with Python'
+  package_url: https://pypi.org/project/pytest
+  version: 6.2.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19843/default_4604ff5dcb7f4d9c7b3833591c2142493951b19c.png
+  detection_source_url: https://github.com/aryaniyaps/flask-graphql-boilerplate/blob/main/{{cookiecutter.project_slug}}/Pipfile.lock
+  detection_source: "{{cookiecutter.project_slug}}/Pipfile"
+  last_updated_by: Aryan Iyappan
+  last_updated_on: 2021-07-31 14:36:29.000000000 Z
