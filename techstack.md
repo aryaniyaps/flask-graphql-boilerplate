@@ -4,9 +4,9 @@
 aryaniyaps/flask-graphql-boilerplate is built on the following main stack:
 
 - [Python](https://www.python.org) – Languages
+- [Flask](http://flask.pocoo.org/) – Microframeworks (Backend)
 - [SQLAlchemy](http://www.sqlalchemy.org/) – Object Relational Mapper (ORM)
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
-- [Flask](http://flask.pocoo.org/) – Microframeworks (Backend)
 
 Full tech stack [here](/techstack.md)
 
@@ -17,9 +17,9 @@ Full tech stack [here](/techstack.md)
 aryaniyaps/flask-graphql-boilerplate is built on the following main stack:
 
 - <img width='25' height='25' src='https://img.stackshare.io/service/993/pUBY5pVj.png' alt='Python'/> [Python](https://www.python.org) – Languages
+- <img width='25' height='25' src='https://img.stackshare.io/service/1001/default_6d109315b60108628b7cd3e159b84645c31ef0e2.png' alt='Flask'/> [Flask](http://flask.pocoo.org/) – Microframeworks (Backend)
 - <img width='25' height='25' src='https://img.stackshare.io/service/1839/q5uAkmy7.png' alt='SQLAlchemy'/> [SQLAlchemy](http://www.sqlalchemy.org/) – Object Relational Mapper (ORM)
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
-- <img width='25' height='25' src='https://img.stackshare.io/service/1001/default_6d109315b60108628b7cd3e159b84645c31ef0e2.png' alt='Flask'/> [Flask](http://flask.pocoo.org/) – Microframeworks (Backend)
 
 Full tech stack [here](/techstack.md)
 
@@ -30,7 +30,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [aryaniyaps/flask-graphql-boilerplate](https://github.com/aryaniyaps/flask-graphql-boilerplate)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|24<br/>Tools used|01/20/24 <br/>Report generated|
+|24<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
